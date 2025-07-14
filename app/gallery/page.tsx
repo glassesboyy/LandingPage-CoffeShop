@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { Card, CardContent } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Image from "next/image";
+import { useState } from "react";
 
 const galleryImages = {
   interior: [
@@ -135,20 +135,31 @@ const galleryImages = {
       title: "Coffee Cupping Session",
     },
   ],
-}
+};
 
 export default function GalleryPage() {
-  const [activeTab, setActiveTab] = useState("interior")
+  const [activeTab, setActiveTab] = useState("interior");
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-amber-900 to-amber-800 text-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-32 text-white">
+        <div className="absolute inset-0">
+          <Image
+            src="/assets/random/headline-background.png"
+            alt="Hero Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-amber-950/90 to-amber-950/40" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Galeri Kami</h1>
-            <p className="text-xl md:text-2xl text-amber-100">
-              Jelajahi suasana hangat dan momen-momen berharga di coffee shop kami
+            <h1 className="text-5xl md:text-6xl font-bold mb-4">Galeri Kami</h1>
+            <p className="text-lg md:text-xl text-amber-100">
+              Jelajahi suasana hangat dan momen-momen berharga di coffee shop
+              kami
             </p>
           </div>
         </div>
@@ -157,12 +168,22 @@ export default function GalleryPage() {
       {/* Gallery Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <Tabs
+            value={activeTab}
+            onValueChange={setActiveTab}
+            className="w-full"
+          >
             <TabsList className="grid w-full grid-cols-4 mb-12 bg-amber-50">
-              <TabsTrigger value="interior" className="data-[state=active]:bg-amber-600 data-[state=active]:text-white">
+              <TabsTrigger
+                value="interior"
+                className="data-[state=active]:bg-amber-600 data-[state=active]:text-white"
+              >
                 Interior
               </TabsTrigger>
-              <TabsTrigger value="barista" className="data-[state=active]:bg-amber-600 data-[state=active]:text-white">
+              <TabsTrigger
+                value="barista"
+                className="data-[state=active]:bg-amber-600 data-[state=active]:text-white"
+              >
                 Barista
               </TabsTrigger>
               <TabsTrigger
@@ -171,16 +192,22 @@ export default function GalleryPage() {
               >
                 Pelanggan
               </TabsTrigger>
-              <TabsTrigger value="events" className="data-[state=active]:bg-amber-600 data-[state=active]:text-white">
+              <TabsTrigger
+                value="events"
+                className="data-[state=active]:bg-amber-600 data-[state=active]:text-white"
+              >
                 Event
               </TabsTrigger>
             </TabsList>
 
             <TabsContent value="interior">
               <div className="mb-8">
-                <h2 className="text-3xl font-bold text-amber-900 mb-4">Interior & Eksterior</h2>
+                <h2 className="text-3xl font-bold text-amber-900 mb-4">
+                  Interior & Eksterior
+                </h2>
                 <p className="text-gray-600 text-lg">
-                  Nikmati suasana hangat dan desain interior yang nyaman di coffee shop kami
+                  Nikmati suasana hangat dan desain interior yang nyaman di
+                  coffee shop kami
                 </p>
               </div>
               <GalleryGrid images={galleryImages.interior} />
@@ -188,9 +215,12 @@ export default function GalleryPage() {
 
             <TabsContent value="barista">
               <div className="mb-8">
-                <h2 className="text-3xl font-bold text-amber-900 mb-4">Aktivitas Barista</h2>
+                <h2 className="text-3xl font-bold text-amber-900 mb-4">
+                  Aktivitas Barista
+                </h2>
                 <p className="text-gray-600 text-lg">
-                  Saksikan keahlian barista kami dalam menciptakan kopi berkualitas tinggi
+                  Saksikan keahlian barista kami dalam menciptakan kopi
+                  berkualitas tinggi
                 </p>
               </div>
               <GalleryGrid images={galleryImages.barista} />
@@ -198,9 +228,12 @@ export default function GalleryPage() {
 
             <TabsContent value="customers">
               <div className="mb-8">
-                <h2 className="text-3xl font-bold text-amber-900 mb-4">Suasana Pelanggan</h2>
+                <h2 className="text-3xl font-bold text-amber-900 mb-4">
+                  Suasana Pelanggan
+                </h2>
                 <p className="text-gray-600 text-lg">
-                  Momen-momen berharga pelanggan yang menikmati waktu di coffee shop kami
+                  Momen-momen berharga pelanggan yang menikmati waktu di coffee
+                  shop kami
                 </p>
               </div>
               <GalleryGrid images={galleryImages.customers} />
@@ -208,9 +241,12 @@ export default function GalleryPage() {
 
             <TabsContent value="events">
               <div className="mb-8">
-                <h2 className="text-3xl font-bold text-amber-900 mb-4">Dokumentasi Event</h2>
+                <h2 className="text-3xl font-bold text-amber-900 mb-4">
+                  Dokumentasi Event
+                </h2>
                 <p className="text-gray-600 text-lg">
-                  Berbagai kegiatan dan event menarik yang telah kami selenggarakan
+                  Berbagai kegiatan dan event menarik yang telah kami
+                  selenggarakan
                 </p>
               </div>
               <GalleryGrid images={galleryImages.events} />
@@ -219,7 +255,7 @@ export default function GalleryPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
 function GalleryGrid({ images }: { images: any[] }) {
@@ -256,12 +292,14 @@ function GalleryGrid({ images }: { images: any[] }) {
                 className="w-full h-auto rounded-lg"
               />
               <div className="mt-4">
-                <h3 className="text-xl font-bold text-amber-900">{image.title}</h3>
+                <h3 className="text-xl font-bold text-amber-900">
+                  {image.title}
+                </h3>
               </div>
             </div>
           </DialogContent>
         </Dialog>
       ))}
     </div>
-  )
+  );
 }

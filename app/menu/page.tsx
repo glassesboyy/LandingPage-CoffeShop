@@ -1,12 +1,18 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Image from "next/image";
+import { useState } from "react";
 
 const menuItems = {
   coffee: [
@@ -161,31 +167,41 @@ const menuItems = {
       signature: true,
     },
   ],
-}
+};
 
 export default function MenuPage() {
-  const [sortBy, setSortBy] = useState("name")
-  const [activeTab, setActiveTab] = useState("coffee")
+  const [sortBy, setSortBy] = useState("name");
+  const [activeTab, setActiveTab] = useState("coffee");
 
   const sortItems = (items: any[]) => {
     return [...items].sort((a, b) => {
       if (sortBy === "price") {
-        const priceA = Number.parseInt(a.price.replace(/\D/g, ""))
-        const priceB = Number.parseInt(b.price.replace(/\D/g, ""))
-        return priceA - priceB
+        const priceA = Number.parseInt(a.price.replace(/\D/g, ""));
+        const priceB = Number.parseInt(b.price.replace(/\D/g, ""));
+        return priceA - priceB;
       }
-      return a.name.localeCompare(b.name)
-    })
-  }
+      return a.name.localeCompare(b.name);
+    });
+  };
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-amber-900 to-amber-800 text-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-32 text-white">
+        <div className="absolute inset-0">
+          <Image
+            src="/assets/random/headline-background.png"
+            alt="Hero Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-amber-950/90 to-amber-950/40" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Menu Kami</h1>
-            <p className="text-xl md:text-2xl text-amber-100">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4">Menu Kami</h1>
+            <p className="text-lg md:text-xl text-amber-100">
               Jelajahi koleksi kopi premium dan makanan lezat yang kami tawarkan
             </p>
           </div>
@@ -197,7 +213,9 @@ export default function MenuPage() {
         <div className="container mx-auto px-4">
           {/* Filter Controls */}
           <div className="flex flex-col sm:flex-row justify-between items-center mb-12 gap-4">
-            <h2 className="text-3xl font-bold text-amber-900">Pilih Kategori</h2>
+            <h2 className="text-3xl font-bold text-amber-900">
+              Pilih Kategori
+            </h2>
             <Select value={sortBy} onValueChange={setSortBy}>
               <SelectTrigger className="w-48">
                 <SelectValue placeholder="Urutkan berdasarkan" />
@@ -209,9 +227,16 @@ export default function MenuPage() {
             </Select>
           </div>
 
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <Tabs
+            value={activeTab}
+            onValueChange={setActiveTab}
+            className="w-full"
+          >
             <TabsList className="grid w-full grid-cols-4 mb-12 bg-amber-50">
-              <TabsTrigger value="coffee" className="data-[state=active]:bg-amber-600 data-[state=active]:text-white">
+              <TabsTrigger
+                value="coffee"
+                className="data-[state=active]:bg-amber-600 data-[state=active]:text-white"
+              >
                 Coffee
               </TabsTrigger>
               <TabsTrigger
@@ -220,7 +245,10 @@ export default function MenuPage() {
               >
                 Non-Coffee
               </TabsTrigger>
-              <TabsTrigger value="food" className="data-[state=active]:bg-amber-600 data-[state=active]:text-white">
+              <TabsTrigger
+                value="food"
+                className="data-[state=active]:bg-amber-600 data-[state=active]:text-white"
+              >
                 Food
               </TabsTrigger>
               <TabsTrigger
@@ -266,7 +294,7 @@ export default function MenuPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
 function MenuCard({ item }: { item: any }) {
@@ -281,13 +309,19 @@ function MenuCard({ item }: { item: any }) {
             height={200}
             className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
           />
-          {item.signature && <Badge className="absolute top-4 right-4 bg-amber-600 text-white">Signature</Badge>}
+          {item.signature && (
+            <Badge className="absolute top-4 right-4 bg-amber-600 text-white">
+              Signature
+            </Badge>
+          )}
         </div>
         <div className="p-6">
           <h3 className="text-xl font-bold text-amber-900 mb-2">{item.name}</h3>
           <p className="text-gray-600 mb-4 text-sm">{item.description}</p>
           <div className="flex justify-between items-center">
-            <span className="text-2xl font-bold text-amber-700">{item.price}</span>
+            <span className="text-2xl font-bold text-amber-700">
+              {item.price}
+            </span>
             <Button size="sm" className="bg-amber-600 hover:bg-amber-700">
               Pesan
             </Button>
@@ -295,5 +329,5 @@ function MenuCard({ item }: { item: any }) {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

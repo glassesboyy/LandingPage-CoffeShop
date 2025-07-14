@@ -28,7 +28,7 @@ export default function HomePage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
+    }, 50000);
 
     return () => clearInterval(interval);
   }, [heroImages.length]);
@@ -102,7 +102,7 @@ export default function HomePage() {
       </section>
 
       {/* About Preview Section */}
-      <section className="py-20 bg-cream-50">
+      <section className="py-20 bg-amber-50">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>

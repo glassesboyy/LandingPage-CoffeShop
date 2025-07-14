@@ -1,9 +1,17 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Calendar, Clock, MapPin, Users, Instagram, Facebook, Twitter } from "lucide-react"
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Calendar,
+  Clock,
+  Facebook,
+  Instagram,
+  MapPin,
+  Twitter,
+  Users,
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 const upcomingEvents = [
   {
@@ -54,7 +62,8 @@ const upcomingEvents = [
     capacity: "12 orang",
     price: "Rp 75.000",
     image: "/placeholder.svg?height=300&width=400",
-    description: "Diskusi buku bulanan dengan tema 'Coffee Culture Around the World' sambil menikmati kopi spesial.",
+    description:
+      "Diskusi buku bulanan dengan tema 'Coffee Culture Around the World' sambil menikmati kopi spesial.",
     status: "limited",
   },
   {
@@ -66,7 +75,8 @@ const upcomingEvents = [
     capacity: "8 orang",
     price: "Rp 500.000",
     image: "/placeholder.svg?height=300&width=400",
-    description: "Pelatihan dasar menjadi barista profesional. Termasuk sertifikat dan starter kit.",
+    description:
+      "Pelatihan dasar menjadi barista profesional. Termasuk sertifikat dan starter kit.",
     status: "soldout",
   },
   {
@@ -82,20 +92,22 @@ const upcomingEvents = [
       "Kunjungan ke kebun kopi untuk melihat langsung proses dari biji hingga cangkir. Termasuk transportasi dan makan siang.",
     status: "available",
   },
-]
+];
 
 const pastEvents = [
   {
     title: "Grand Opening Celebration",
     date: "15 Desember 2023",
     image: "/placeholder.svg?height=200&width=300",
-    description: "Perayaan grand opening dengan berbagai doorprize dan diskon spesial.",
+    description:
+      "Perayaan grand opening dengan berbagai doorprize dan diskon spesial.",
   },
   {
     title: "Christmas Coffee Special",
     date: "24 Desember 2023",
     image: "/placeholder.svg?height=200&width=300",
-    description: "Menu kopi spesial Natal dengan cita rasa unik dan dekorasi meriah.",
+    description:
+      "Menu kopi spesial Natal dengan cita rasa unik dan dekorasi meriah.",
   },
   {
     title: "New Year Coffee Toast",
@@ -103,21 +115,31 @@ const pastEvents = [
     image: "/placeholder.svg?height=200&width=300",
     description: "Menyambut tahun baru dengan coffee toast bersama komunitas.",
   },
-]
+];
 
 export default function EventPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-amber-900 to-amber-800 text-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-32 text-white">
+        <div className="absolute inset-0">
+          <Image
+            src="/assets/random/headline-background.png"
+            alt="Hero Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-amber-950/90 to-amber-950/40" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Event & Kegiatan</h1>
-            <p className="text-xl md:text-2xl text-amber-100 mb-8">
-              Bergabunglah dengan komunitas kami dalam berbagai kegiatan menarik dan edukatif
-            </p>
-            <p className="text-lg text-amber-200">
-              Dari workshop kopi hingga kompetisi latte art, temukan pengalaman baru bersama kami
+            <h1 className="text-5xl md:text-6xl font-bold mb-4">
+              Event & Kegiatan
+            </h1>
+            <p className="text-lg md:text-xl text-amber-100">
+              Bergabunglah dengan komunitas kami dalam berbagai kegiatan menarik
+              dan edukatif
             </p>
           </div>
         </div>
@@ -127,15 +149,21 @@ export default function EventPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-amber-900 mb-4">Event Mendatang</h2>
+            <h2 className="text-4xl font-bold text-amber-900 mb-4">
+              Event Mendatang
+            </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Jangan lewatkan kesempatan untuk mengikuti berbagai kegiatan menarik kami
+              Jangan lewatkan kesempatan untuk mengikuti berbagai kegiatan
+              menarik kami
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {upcomingEvents.map((event) => (
-              <Card key={event.id} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md">
+              <Card
+                key={event.id}
+                className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md"
+              >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden rounded-t-lg">
                     <Image
@@ -146,13 +174,27 @@ export default function EventPage() {
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute top-4 right-4">
-                      {event.status === "available" && <Badge className="bg-green-600 text-white">Tersedia</Badge>}
-                      {event.status === "limited" && <Badge className="bg-yellow-600 text-white">Terbatas</Badge>}
-                      {event.status === "soldout" && <Badge className="bg-red-600 text-white">Sold Out</Badge>}
+                      {event.status === "available" && (
+                        <Badge className="bg-green-600 text-white">
+                          Tersedia
+                        </Badge>
+                      )}
+                      {event.status === "limited" && (
+                        <Badge className="bg-yellow-600 text-white">
+                          Terbatas
+                        </Badge>
+                      )}
+                      {event.status === "soldout" && (
+                        <Badge className="bg-red-600 text-white">
+                          Sold Out
+                        </Badge>
+                      )}
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-amber-900 mb-3">{event.title}</h3>
+                    <h3 className="text-xl font-bold text-amber-900 mb-3">
+                      {event.title}
+                    </h3>
 
                     <div className="space-y-2 mb-4">
                       <div className="flex items-center gap-2 text-gray-600">
@@ -173,10 +215,14 @@ export default function EventPage() {
                       </div>
                     </div>
 
-                    <p className="text-gray-600 mb-4 text-sm">{event.description}</p>
+                    <p className="text-gray-600 mb-4 text-sm">
+                      {event.description}
+                    </p>
 
                     <div className="flex justify-between items-center">
-                      <span className="text-2xl font-bold text-amber-700">{event.price}</span>
+                      <span className="text-2xl font-bold text-amber-700">
+                        {event.price}
+                      </span>
                       <Button
                         className={`${
                           event.status === "soldout"
@@ -200,15 +246,21 @@ export default function EventPage() {
       <section className="py-20 bg-amber-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-amber-900 mb-4">Event Sebelumnya</h2>
+            <h2 className="text-4xl font-bold text-amber-900 mb-4">
+              Event Sebelumnya
+            </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Lihat dokumentasi kegiatan-kegiatan menarik yang telah kami selenggarakan
+              Lihat dokumentasi kegiatan-kegiatan menarik yang telah kami
+              selenggarakan
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {pastEvents.map((event, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md">
+              <Card
+                key={index}
+                className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md"
+              >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden rounded-t-lg">
                     <Image
@@ -224,7 +276,9 @@ export default function EventPage() {
                       <Calendar className="w-4 h-4" />
                       <span className="text-sm font-medium">{event.date}</span>
                     </div>
-                    <h3 className="text-lg font-bold text-amber-900 mb-3">{event.title}</h3>
+                    <h3 className="text-lg font-bold text-amber-900 mb-3">
+                      {event.title}
+                    </h3>
                     <p className="text-gray-600 text-sm">{event.description}</p>
                   </div>
                 </CardContent>
@@ -238,19 +292,30 @@ export default function EventPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold text-amber-900 mb-6">Tetap Terhubung</h2>
+            <h2 className="text-4xl font-bold text-amber-900 mb-6">
+              Tetap Terhubung
+            </h2>
             <p className="text-xl text-gray-600 mb-8">
-              Ikuti media sosial kami untuk mendapatkan update terbaru tentang event dan promo menarik
+              Ikuti media sosial kami untuk mendapatkan update terbaru tentang
+              event dan promo menarik
             </p>
 
             <div className="flex justify-center gap-6 mb-8">
-              <Button asChild size="lg" className="bg-pink-600 hover:bg-pink-700">
+              <Button
+                asChild
+                size="lg"
+                className="bg-pink-600 hover:bg-pink-700"
+              >
                 <Link href="#" className="flex items-center gap-2">
                   <Instagram className="w-5 h-5" />
                   Instagram
                 </Link>
               </Button>
-              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+              <Button
+                asChild
+                size="lg"
+                className="bg-blue-600 hover:bg-blue-700"
+              >
                 <Link href="#" className="flex items-center gap-2">
                   <Facebook className="w-5 h-5" />
                   Facebook
@@ -265,11 +330,12 @@ export default function EventPage() {
             </div>
 
             <p className="text-gray-600">
-              Atau kunjungi langsung coffee shop kami untuk informasi lebih lanjut tentang event mendatang
+              Atau kunjungi langsung coffee shop kami untuk informasi lebih
+              lanjut tentang event mendatang
             </p>
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }

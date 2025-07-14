@@ -103,18 +103,27 @@ export default function TestimonialsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-amber-900 to-amber-800 text-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-32 text-white">
+        <div className="absolute inset-0">
+          <Image
+            src="/assets/random/headline-background.png"
+            alt="Hero Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-amber-950/90 to-amber-950/40" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4">
               Testimoni Pelanggan
             </h1>
-            <p className="text-xl md:text-2xl text-amber-100 mb-8">
+            <p className="text-lg md:text-xl text-amber-100 mb-4">
               Dengarkan pengalaman nyata dari pelanggan setia kami
             </p>
-
             {/* Rating Summary */}
-            <div className="flex items-center justify-center gap-4 bg-white/10 rounded-lg p-6 max-w-md mx-auto">
+            <div className="flex items-center justify-center gap-4 bg-amber-900 rounded-lg p-6 max-w-md mx-auto">
               <div className="text-center">
                 <div className="text-4xl font-bold mb-2">
                   {averageRating.toFixed(1)}

@@ -1,44 +1,68 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Twitter } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Clock,
+  Facebook,
+  Instagram,
+  Mail,
+  MapPin,
+  Phone,
+  Twitter,
+} from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  })
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle form submission (dummy)
-    alert("Terima kasih! Pesan Anda telah dikirim.")
-    setFormData({ name: "", email: "", message: "" })
-  }
+    alert("Terima kasih! Pesan Anda telah dikirim.");
+    setFormData({ name: "", email: "", message: "" });
+  };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-amber-900 to-amber-800 text-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-32 text-white">
+        <div className="absolute inset-0">
+          <Image
+            src="/assets/random/headline-background.png"
+            alt="Hero Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-amber-950/90 to-amber-950/40" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Hubungi Kami</h1>
-            <p className="text-xl md:text-2xl text-amber-100">
-              Kami siap melayani Anda dengan sepenuh hati. Kunjungi atau hubungi kami kapan saja
+            <h1 className="text-5xl md:text-6xl font-bold mb-4">
+              Hubungi Kami
+            </h1>
+            <p className="text-lg md:text-xl text-amber-100">
+              Kami siap melayani Anda dengan sepenuh hati. Kunjungi atau hubungi
+              kami kapan saja
             </p>
           </div>
         </div>
@@ -50,7 +74,9 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold text-amber-900 mb-8">Informasi Kontak</h2>
+              <h2 className="text-3xl font-bold text-amber-900 mb-8">
+                Informasi Kontak
+              </h2>
 
               <div className="space-y-6">
                 <Card className="p-6 border-0 shadow-lg">
@@ -60,7 +86,9 @@ export default function ContactPage() {
                         <MapPin className="w-6 h-6 text-amber-600" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-amber-900 mb-2">Alamat</h3>
+                        <h3 className="text-xl font-bold text-amber-900 mb-2">
+                          Alamat
+                        </h3>
                         <p className="text-gray-700">
                           Jl. Sudirman No. 123
                           <br />
@@ -80,7 +108,9 @@ export default function ContactPage() {
                         <Phone className="w-6 h-6 text-amber-600" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-amber-900 mb-2">Telepon</h3>
+                        <h3 className="text-xl font-bold text-amber-900 mb-2">
+                          Telepon
+                        </h3>
                         <p className="text-gray-700">
                           +62 341 123 4567
                           <br />
@@ -98,7 +128,9 @@ export default function ContactPage() {
                         <Mail className="w-6 h-6 text-amber-600" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-amber-900 mb-2">Email</h3>
+                        <h3 className="text-xl font-bold text-amber-900 mb-2">
+                          Email
+                        </h3>
                         <p className="text-gray-700">
                           info@coffeeshop.com
                           <br />
@@ -116,11 +148,15 @@ export default function ContactPage() {
                         <Clock className="w-6 h-6 text-amber-600" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-amber-900 mb-2">Jam Operasional</h3>
+                        <h3 className="text-xl font-bold text-amber-900 mb-2">
+                          Jam Operasional
+                        </h3>
                         <div className="text-gray-700 space-y-1">
                           <p>Senin - Jumat: 07:00 - 22:00</p>
                           <p>Sabtu - Minggu: 08:00 - 23:00</p>
-                          <p className="text-amber-600 font-medium">Buka setiap hari</p>
+                          <p className="text-amber-600 font-medium">
+                            Buka setiap hari
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -130,7 +166,9 @@ export default function ContactPage() {
 
               {/* Social Media */}
               <div className="mt-8">
-                <h3 className="text-xl font-bold text-amber-900 mb-4">Ikuti Kami</h3>
+                <h3 className="text-xl font-bold text-amber-900 mb-4">
+                  Ikuti Kami
+                </h3>
                 <div className="flex gap-4">
                   <Button size="sm" className="bg-pink-600 hover:bg-pink-700">
                     <Instagram className="w-4 h-4 mr-2" />
@@ -150,13 +188,18 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div>
-              <h2 className="text-3xl font-bold text-amber-900 mb-8">Kirim Pesan</h2>
+              <h2 className="text-3xl font-bold text-amber-900 mb-8">
+                Kirim Pesan
+              </h2>
 
               <Card className="p-8 border-0 shadow-lg">
                 <CardContent className="p-0">
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
                         Nama Lengkap
                       </label>
                       <Input
@@ -172,7 +215,10 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
                         Email
                       </label>
                       <Input
@@ -188,7 +234,10 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label
+                        htmlFor="message"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
                         Pesan
                       </label>
                       <Textarea
@@ -203,7 +252,10 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    <Button type="submit" className="w-full bg-amber-600 hover:bg-amber-700 text-white py-3">
+                    <Button
+                      type="submit"
+                      className="w-full bg-amber-600 hover:bg-amber-700 text-white py-3"
+                    >
                       Kirim Pesan
                     </Button>
                   </form>
@@ -218,8 +270,12 @@ export default function ContactPage() {
       <section className="py-20 bg-amber-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-amber-900 mb-4">Lokasi Kami</h2>
-            <p className="text-xl text-gray-600">Temukan kami di jantung kota Malang yang mudah dijangkau</p>
+            <h2 className="text-3xl font-bold text-amber-900 mb-4">
+              Lokasi Kami
+            </h2>
+            <p className="text-xl text-gray-600">
+              Temukan kami di jantung kota Malang yang mudah dijangkau
+            </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
@@ -229,8 +285,12 @@ export default function ContactPage() {
                 <div className="relative h-96 bg-gray-200 flex items-center justify-center">
                   <div className="text-center">
                     <MapPin className="w-12 h-12 text-amber-600 mx-auto mb-4" />
-                    <p className="text-gray-600 font-medium">Google Maps akan ditampilkan di sini</p>
-                    <p className="text-sm text-gray-500 mt-2">Jl. Sudirman No. 123, Malang, Jawa Timur 65145</p>
+                    <p className="text-gray-600 font-medium">
+                      Google Maps akan ditampilkan di sini
+                    </p>
+                    <p className="text-sm text-gray-500 mt-2">
+                      Jl. Sudirman No. 123, Malang, Jawa Timur 65145
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -238,13 +298,16 @@ export default function ContactPage() {
 
             <div className="mt-8 text-center">
               <p className="text-gray-600 mb-4">
-                Parkir tersedia di area sekitar coffee shop. Akses mudah dengan transportasi umum.
+                Parkir tersedia di area sekitar coffee shop. Akses mudah dengan
+                transportasi umum.
               </p>
-              <Button className="bg-amber-600 hover:bg-amber-700">Buka di Google Maps</Button>
+              <Button className="bg-amber-600 hover:bg-amber-700">
+                Buka di Google Maps
+              </Button>
             </div>
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }
