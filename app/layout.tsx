@@ -1,11 +1,22 @@
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Playfair_Display, Source_Sans_3 } from "next/font/google";
 import type React from "react";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const sourceSans = Source_Sans_3({
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+  variable: "--font-source-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Coffee Shop - Rasakan Pengalaman Ngopi Terbaik",
@@ -20,7 +31,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id">
-      <body className={inter.className}>
+      <body className={`${playfair.variable} ${sourceSans.variable} font-sans`}>
         <Header />
         <main>{children}</main>
         <Footer />

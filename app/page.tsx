@@ -1,9 +1,9 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Star, Calendar } from "lucide-react"
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Calendar, Star } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -27,10 +27,15 @@ export default function HomePage() {
             <span className="block text-amber-200">Ngopi Terbaik</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-amber-100 max-w-2xl mx-auto">
-            Temukan suasana hangat, kopi berkualitas, dan komunitas menyenangkan di tempat kami
+            Temukan suasana hangat, kopi berkualitas, dan komunitas menyenangkan
+            di tempat kami
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 text-lg">
+            <Button
+              asChild
+              size="lg"
+              className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 text-lg"
+            >
               <Link href="/menu">Lihat Menu</Link>
             </Button>
             <Button
@@ -50,15 +55,19 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-amber-900 mb-6">Cerita Kami</h2>
+              <h2 className="text-4xl font-bold text-amber-900 mb-6">
+                Cerita Kami
+              </h2>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Dimulai dari kecintaan terhadap kopi berkualitas, kami hadir untuk menciptakan ruang hangat di mana
-                setiap tegukan kopi menjadi momen berharga. Dengan biji kopi pilihan dari petani lokal dan barista
-                berpengalaman, kami berkomitmen menghadirkan pengalaman ngopi terbaik.
+                Dimulai dari kecintaan terhadap kopi berkualitas, kami hadir
+                untuk menciptakan ruang hangat di mana setiap tegukan kopi
+                menjadi momen berharga. Dengan biji kopi pilihan dari petani
+                lokal dan barista berpengalaman, kami berkomitmen menghadirkan
+                pengalaman ngopi terbaik.
               </p>
               <p className="text-gray-600 mb-8">
-                Lebih dari sekadar coffee shop, kami adalah rumah kedua bagi komunitas pecinta kopi yang menghargai
-                kualitas dan kehangatan.
+                Lebih dari sekadar coffee shop, kami adalah rumah kedua bagi
+                komunitas pecinta kopi yang menghargai kualitas dan kehangatan.
               </p>
               <Button asChild className="bg-amber-700 hover:bg-amber-800">
                 <Link href="/about">Baca Selengkapnya</Link>
@@ -81,9 +90,12 @@ export default function HomePage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-amber-900 mb-4">Menu Signature Kami</h2>
+            <h2 className="text-4xl font-bold text-amber-900 mb-4">
+              Menu Signature Kami
+            </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Nikmati kreasi kopi terbaik yang telah menjadi favorit pelanggan setia kami
+              Nikmati kreasi kopi terbaik yang telah menjadi favorit pelanggan
+              setia kami
             </p>
           </div>
 
@@ -93,19 +105,22 @@ export default function HomePage() {
                 name: "Signature Latte",
                 price: "Rp 35.000",
                 image: "/placeholder.svg?height=300&width=300",
-                description: "Espresso premium dengan steamed milk dan latte art cantik",
+                description:
+                  "Espresso premium dengan steamed milk dan latte art cantik",
               },
               {
                 name: "Cold Brew Special",
                 price: "Rp 32.000",
                 image: "/placeholder.svg?height=300&width=300",
-                description: "Cold brew 12 jam dengan rasa smooth dan aroma khas",
+                description:
+                  "Cold brew 12 jam dengan rasa smooth dan aroma khas",
               },
               {
                 name: "Cappuccino Klasik",
                 price: "Rp 30.000",
                 image: "/placeholder.svg?height=300&width=300",
-                description: "Perpaduan sempurna espresso, steamed milk, dan foam",
+                description:
+                  "Perpaduan sempurna espresso, steamed milk, dan foam",
               },
               {
                 name: "Affogato Delight",
@@ -114,7 +129,10 @@ export default function HomePage() {
                 description: "Es krim vanilla premium disiram espresso panas",
               },
             ].map((item, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md">
+              <Card
+                key={index}
+                className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md"
+              >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden rounded-t-lg">
                     <Image
@@ -124,14 +142,25 @@ export default function HomePage() {
                       height={300}
                       className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <Badge className="absolute top-4 right-4 bg-amber-600 text-white">Signature</Badge>
+                    <Badge className="absolute top-4 right-4 bg-amber-600 text-white">
+                      Signature
+                    </Badge>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-amber-900 mb-2">{item.name}</h3>
-                    <p className="text-gray-600 mb-4 text-sm">{item.description}</p>
+                    <h3 className="text-xl font-bold text-amber-900 mb-2">
+                      {item.name}
+                    </h3>
+                    <p className="text-gray-600 mb-4 text-sm">
+                      {item.description}
+                    </p>
                     <div className="flex justify-between items-center">
-                      <span className="text-2xl font-bold text-amber-700">{item.price}</span>
-                      <Button size="sm" className="bg-amber-600 hover:bg-amber-700">
+                      <span className="text-2xl font-bold text-amber-700">
+                        {item.price}
+                      </span>
+                      <Button
+                        size="sm"
+                        className="bg-amber-600 hover:bg-amber-700"
+                      >
                         Pesan
                       </Button>
                     </div>
@@ -158,8 +187,12 @@ export default function HomePage() {
       <section className="py-20 bg-amber-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-amber-900 mb-4">Event Mendatang</h2>
-            <p className="text-xl text-gray-600">Bergabunglah dengan komunitas kami dalam berbagai kegiatan menarik</p>
+            <h2 className="text-4xl font-bold text-amber-900 mb-4">
+              Event Mendatang
+            </h2>
+            <p className="text-xl text-gray-600">
+              Bergabunglah dengan komunitas kami dalam berbagai kegiatan menarik
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -169,17 +202,22 @@ export default function HomePage() {
                 date: "25 Januari 2024",
                 time: "14:00 - 16:00",
                 image: "/placeholder.svg?height=300&width=400",
-                description: "Pelajari cara mencicipi dan menilai kopi seperti seorang profesional",
+                description:
+                  "Pelajari cara mencicipi dan menilai kopi seperti seorang profesional",
               },
               {
                 title: "Latte Art Competition",
                 date: "10 Februari 2024",
                 time: "10:00 - 15:00",
                 image: "/placeholder.svg?height=300&width=400",
-                description: "Kompetisi latte art terbuka untuk semua level dengan hadiah menarik",
+                description:
+                  "Kompetisi latte art terbuka untuk semua level dengan hadiah menarik",
               },
             ].map((event, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300">
+              <Card
+                key={index}
+                className="group hover:shadow-xl transition-all duration-300"
+              >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden rounded-t-lg">
                     <Image
@@ -197,9 +235,13 @@ export default function HomePage() {
                         {event.date} • {event.time}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-amber-900 mb-3">{event.title}</h3>
+                    <h3 className="text-xl font-bold text-amber-900 mb-3">
+                      {event.title}
+                    </h3>
                     <p className="text-gray-600 mb-4">{event.description}</p>
-                    <Button className="w-full bg-amber-600 hover:bg-amber-700">Daftar Sekarang</Button>
+                    <Button className="w-full bg-amber-600 hover:bg-amber-700">
+                      Daftar Sekarang
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -223,9 +265,12 @@ export default function HomePage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-amber-900 mb-4">Kata Mereka</h2>
+            <h2 className="text-4xl font-bold text-amber-900 mb-4">
+              Kata Mereka
+            </h2>
             <p className="text-xl text-gray-600">
-              Testimoni dari pelanggan setia yang telah merasakan pengalaman terbaik
+              Testimoni dari pelanggan setia yang telah merasakan pengalaman
+              terbaik
             </p>
           </div>
 
@@ -259,16 +304,25 @@ export default function HomePage() {
                       className="rounded-full"
                     />
                     <div>
-                      <h4 className="font-bold text-amber-900">{testimonial.name}</h4>
-                      <p className="text-sm text-gray-600">{testimonial.role}</p>
+                      <h4 className="font-bold text-amber-900">
+                        {testimonial.name}
+                      </h4>
+                      <p className="text-sm text-gray-600">
+                        {testimonial.role}
+                      </p>
                     </div>
                   </div>
                   <div className="flex gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                      <Star
+                        key={i}
+                        className="w-5 h-5 fill-amber-400 text-amber-400"
+                      />
                     ))}
                   </div>
-                  <p className="text-gray-700 italic">"{testimonial.comment}"</p>
+                  <p className="text-gray-700 italic">
+                    "{testimonial.comment}"
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -287,5 +341,5 @@ export default function HomePage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

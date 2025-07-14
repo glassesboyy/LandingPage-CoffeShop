@@ -1,5 +1,12 @@
-import Link from "next/link"
-import { Coffee, MapPin, Phone, Mail, Instagram, Facebook, Twitter } from "lucide-react"
+import {
+  Facebook,
+  Instagram,
+  Mail,
+  MapPin,
+  Phone,
+  Twitter,
+} from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -9,22 +16,31 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="p-2 bg-amber-600 rounded-full">
-                <Coffee className="h-6 w-6 text-white" />
-              </div>
-              <span className="text-xl font-bold">Coffee Shop</span>
+              <span className="text-2xl font-serif font-bold">
+                Zul Coffee Shop
+              </span>
             </div>
             <p className="text-amber-100 mb-4">
-              Menciptakan pengalaman kopi terbaik dengan suasana hangat dan pelayanan ramah untuk setiap pelanggan.
+              Menciptakan pengalaman kopi terbaik dengan suasana hangat dan
+              pelayanan ramah untuk setiap pelanggan.
             </p>
             <div className="flex space-x-4">
-              <Link href="#" className="text-amber-200 hover:text-white transition-colors">
+              <Link
+                href="#"
+                className="text-amber-200 hover:text-white transition-colors"
+              >
                 <Instagram className="h-5 w-5" />
               </Link>
-              <Link href="#" className="text-amber-200 hover:text-white transition-colors">
+              <Link
+                href="#"
+                className="text-amber-200 hover:text-white transition-colors"
+              >
                 <Facebook className="h-5 w-5" />
               </Link>
-              <Link href="#" className="text-amber-200 hover:text-white transition-colors">
+              <Link
+                href="#"
+                className="text-amber-200 hover:text-white transition-colors"
+              >
                 <Twitter className="h-5 w-5" />
               </Link>
             </div>
@@ -35,27 +51,42 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-amber-200 hover:text-white transition-colors">
+                <Link
+                  href="/"
+                  className="text-amber-200 hover:text-white transition-colors"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-amber-200 hover:text-white transition-colors">
+                <Link
+                  href="/about"
+                  className="text-amber-200 hover:text-white transition-colors"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/menu" className="text-amber-200 hover:text-white transition-colors">
+                <Link
+                  href="/menu"
+                  className="text-amber-200 hover:text-white transition-colors"
+                >
                   Menu
                 </Link>
               </li>
               <li>
-                <Link href="/event" className="text-amber-200 hover:text-white transition-colors">
+                <Link
+                  href="/event"
+                  className="text-amber-200 hover:text-white transition-colors"
+                >
                   Event
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-amber-200 hover:text-white transition-colors">
+                <Link
+                  href="/contact"
+                  className="text-amber-200 hover:text-white transition-colors"
+                >
                   Contact
                 </Link>
               </li>
@@ -67,22 +98,34 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Menu</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/menu" className="text-amber-200 hover:text-white transition-colors">
+                <Link
+                  href="/menu"
+                  className="text-amber-200 hover:text-white transition-colors"
+                >
                   Coffee
                 </Link>
               </li>
               <li>
-                <Link href="/menu" className="text-amber-200 hover:text-white transition-colors">
+                <Link
+                  href="/menu"
+                  className="text-amber-200 hover:text-white transition-colors"
+                >
                   Non-Coffee
                 </Link>
               </li>
               <li>
-                <Link href="/menu" className="text-amber-200 hover:text-white transition-colors">
+                <Link
+                  href="/menu"
+                  className="text-amber-200 hover:text-white transition-colors"
+                >
                   Food
                 </Link>
               </li>
               <li>
-                <Link href="/menu" className="text-amber-200 hover:text-white transition-colors">
+                <Link
+                  href="/menu"
+                  className="text-amber-200 hover:text-white transition-colors"
+                >
                   Signature Menu
                 </Link>
               </li>
@@ -114,9 +157,11 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-amber-800 mt-8 pt-8 text-center">
-          <p className="text-amber-200">&copy; {new Date().getFullYear()} Coffee Shop. All rights reserved.</p>
+          <p className="text-amber-200">
+            &copy; {new Date().getFullYear()} Coffee Shop. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
