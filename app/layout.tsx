@@ -19,9 +19,9 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "Coffee Shop - Rasakan Pengalaman Ngopi Terbaik",
+  title: "Noir Coffee | Rasakan Pengalaman Ngopi Terbaik",
   description:
-    "Coffee shop modern dengan suasana hangat, kopi berkualitas, dan komunitas menyenangkan. Temukan pengalaman ngopi terbaik di tempat kami.",
+    "Noir Coffee adalah coffee shop modern dengan suasana hangat, kopi berkualitas, dan komunitas menyenangkan. Temukan pengalaman ngopi terbaik di tempat kami.",
 };
 
 export default function RootLayout({

@@ -16,9 +16,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <span className="text-2xl font-serif font-bold">
-                Zul Coffee Shop
-              </span>
+              <span className="text-2xl font-serif font-bold">Noir Coffee</span>
             </div>
             <p className="text-amber-100 mb-4">
               Menciptakan pengalaman kopi terbaik dengan suasana hangat dan

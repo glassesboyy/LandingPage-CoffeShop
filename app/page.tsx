@@ -1,52 +1,103 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function HomePage() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const heroImages = [
+    "/assets/random/hero.jpeg",
+    "/assets/random/hero2.jpeg",
+    "/assets/random/hero3.jpeg",
+    "/assets/random/hero4.jpeg",
+  ];
+
+  const heroContent = {
+    title: "Rasakan Pengalaman",
+    subtitle: "Ngopi Terbaik",
+    description:
+      "Lebih dari sekadar secangkir kopi — nikmati setiap tegukan dalam suasana yang hangat, penuh cerita, dan dibuat dengan cinta.",
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
+
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-r from-amber-900/90 to-amber-800/90">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/placeholder.svg?height=1080&width=1920"
-            alt="Coffee Shop Interior"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-900/80 to-amber-800/60" />
+      {/* Hero Section with Fade Carousel */}
+      <section className="relative h-screen overflow-hidden">
+        {heroImages.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <Image
+              src={image}
+              alt={`Hero ${index + 1}`}
+              fill
+              className="object-cover"
+              priority={index === 0}
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-950/90 via-amber-900/70 to-amber-950/90" />
+          </div>
+        ))}
+
+        {/* Static Content */}
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="text-center text-white max-w-4xl mx-auto px-4">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              {heroContent.title}
+              <span className="block text-amber-300">
+                {heroContent.subtitle}
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl mb-8 text-amber-100 max-w-2xl mx-auto">
+              {heroContent.description}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                asChild
+                size="lg"
+                className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 text-lg"
+              >
+                <Link href="/menu">Lihat Menu</Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-white text-white hover:bg-white hover:text-amber-900 px-8 py-3 text-lg bg-transparent"
+              >
+                <Link href="/contact">Kunjungi Kami</Link>
+              </Button>
+            </div>
+          </div>
         </div>
 
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Rasakan Pengalaman
-            <span className="block text-amber-200">Ngopi Terbaik</span>
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-amber-100 max-w-2xl mx-auto">
-            Temukan suasana hangat, kopi berkualitas, dan komunitas menyenangkan
-            di tempat kami
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 text-lg"
-            >
-              <Link href="/menu">Lihat Menu</Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-white text-white hover:bg-white hover:text-amber-900 px-8 py-3 text-lg bg-transparent"
-            >
-              <Link href="/contact">Kunjungi Kami</Link>
-            </Button>
-          </div>
+        {/* Slide Indicators */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentSlide ? "bg-amber-400" : "bg-white/50"
+              }`}
+              onClick={() => setCurrentSlide(index)}
+            />
+          ))}
         </div>
       </section>
 
@@ -55,7 +106,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-amber-900 mb-6">
+              <h2 className="text-5xl font-bold text-amber-900 mb-6">
                 Cerita Kami
               </h2>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
@@ -65,7 +116,7 @@ export default function HomePage() {
                 lokal dan barista berpengalaman, kami berkomitmen menghadirkan
                 pengalaman ngopi terbaik.
               </p>
-              <p className="text-gray-600 mb-8">
+              <p className="text-lg text-gray-700 mb-8">
                 Lebih dari sekadar coffee shop, kami adalah rumah kedua bagi
                 komunitas pecinta kopi yang menghargai kualitas dan kehangatan.
               </p>
@@ -75,7 +126,7 @@ export default function HomePage() {
             </div>
             <div className="relative">
               <Image
-                src="/placeholder.svg?height=500&width=600"
+                src="/assets/random/hero2.jpeg"
                 alt="Coffee Shop Story"
                 width={600}
                 height={500}

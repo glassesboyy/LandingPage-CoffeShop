@@ -28,7 +28,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <span className="text-2xl font-bold font-serif text-amber-900">
-              Zul Coffee Shop
+              Noir Coffee
             </span>
           </Link>
 

@@ -1,7 +1,7 @@
-import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Coffee, Heart, Users, Award } from "lucide-react"
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Award, Coffee, Heart, Users } from "lucide-react";
+import Image from "next/image";
 
 export default function AboutPage() {
   return (
@@ -10,9 +10,12 @@ export default function AboutPage() {
       <section className="relative py-20 bg-gradient-to-r from-amber-900 to-amber-800 text-white">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Tentang Kami</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              Tentang Kami
+            </h1>
             <p className="text-xl md:text-2xl text-amber-100">
-              Perjalanan kami dalam menciptakan pengalaman kopi terbaik untuk Anda
+              Perjalanan kami dalam menciptakan pengalaman kopi terbaik untuk
+              Anda
             </p>
           </div>
         </div>
@@ -23,20 +26,25 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div>
-              <h2 className="text-4xl font-bold text-amber-900 mb-6">Cerita Kami</h2>
+              <h2 className="text-4xl font-bold text-amber-900 mb-6">
+                Cerita Kami
+              </h2>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Berawal dari kecintaan mendalam terhadap kopi berkualitas, kami mendirikan coffee shop ini pada tahun
-                2020 dengan visi sederhana: menciptakan ruang hangat di mana setiap orang dapat menikmati kopi terbaik
-                sambil membangun koneksi yang bermakna.
+                Berawal dari kecintaan mendalam terhadap kopi berkualitas, kami
+                mendirikan coffee shop ini pada tahun 2020 dengan visi
+                sederhana: menciptakan ruang hangat di mana setiap orang dapat
+                menikmati kopi terbaik sambil membangun koneksi yang bermakna.
               </p>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Kami percaya bahwa kopi bukan hanya minuman, tetapi juga jembatan yang menghubungkan orang-orang dari
-                berbagai latar belakang. Setiap cangkir yang kami sajikan adalah hasil dari dedikasi untuk kualitas dan
-                kehangatan pelayanan.
+                Kami percaya bahwa kopi bukan hanya minuman, tetapi juga
+                jembatan yang menghubungkan orang-orang dari berbagai latar
+                belakang. Setiap cangkir yang kami sajikan adalah hasil dari
+                dedikasi untuk kualitas dan kehangatan pelayanan.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Dengan menggunakan biji kopi pilihan dari petani lokal dan teknik brewing yang tepat, kami berkomitmen
-                untuk terus menghadirkan pengalaman ngopi yang tak terlupakan.
+                Dengan menggunakan biji kopi pilihan dari petani lokal dan
+                teknik brewing yang tepat, kami berkomitmen untuk terus
+                menghadirkan pengalaman ngopi yang tak terlupakan.
               </p>
             </div>
             <div className="relative">
@@ -58,11 +66,14 @@ export default function AboutPage() {
                   <div className="p-3 bg-amber-600 rounded-full">
                     <Heart className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-amber-900">Visi Kami</h3>
+                  <h3 className="text-2xl font-bold text-amber-900">
+                    Visi Kami
+                  </h3>
                 </div>
                 <p className="text-gray-700 leading-relaxed">
-                  Menjadi coffee shop terdepan yang tidak hanya menyajikan kopi berkualitas tinggi, tetapi juga
-                  menciptakan komunitas hangat di mana setiap orang merasa diterima dan terinspirasi.
+                  Menjadi coffee shop terdepan yang tidak hanya menyajikan kopi
+                  berkualitas tinggi, tetapi juga menciptakan komunitas hangat
+                  di mana setiap orang merasa diterima dan terinspirasi.
                 </p>
               </CardContent>
             </Card>
@@ -73,11 +84,14 @@ export default function AboutPage() {
                   <div className="p-3 bg-amber-600 rounded-full">
                     <Coffee className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-amber-900">Misi Kami</h3>
+                  <h3 className="text-2xl font-bold text-amber-900">
+                    Misi Kami
+                  </h3>
                 </div>
                 <p className="text-gray-700 leading-relaxed">
-                  Menghadirkan pengalaman kopi terbaik melalui biji kopi berkualitas, pelayanan yang ramah, dan suasana
-                  yang nyaman untuk bekerja, bersantai, dan bersosialisasi.
+                  Menghadirkan pengalaman kopi terbaik melalui biji kopi
+                  berkualitas, pelayanan yang ramah, dan suasana yang nyaman
+                  untuk bekerja, bersantai, dan bersosialisasi.
                 </p>
               </CardContent>
             </Card>
@@ -91,7 +105,8 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-amber-900 mb-4">Tim Kami</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Bertemu dengan orang-orang hebat di balik setiap cangkir kopi yang sempurna
+              Bertemu dengan orang-orang hebat di balik setiap cangkir kopi yang
+              sempurna
             </p>
           </div>
 
@@ -101,13 +116,15 @@ export default function AboutPage() {
                 name: "Budi Santoso",
                 role: "Owner & Head Barista",
                 image: "/placeholder.svg?height=300&width=300",
-                description: "Passionate coffee enthusiast dengan 8 tahun pengalaman",
+                description:
+                  "Passionate coffee enthusiast dengan 8 tahun pengalaman",
               },
               {
                 name: "Maya Sari",
                 role: "Senior Barista",
                 image: "/placeholder.svg?height=300&width=300",
-                description: "Spesialis latte art dan coffee brewing techniques",
+                description:
+                  "Spesialis latte art dan coffee brewing techniques",
               },
               {
                 name: "Rizki Pratama",
@@ -119,10 +136,14 @@ export default function AboutPage() {
                 name: "Sinta Dewi",
                 role: "Store Manager",
                 image: "/placeholder.svg?height=300&width=300",
-                description: "Memastikan pelayanan terbaik untuk setiap pelanggan",
+                description:
+                  "Memastikan pelayanan terbaik untuk setiap pelanggan",
               },
             ].map((member, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md">
+              <Card
+                key={index}
+                className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md"
+              >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden rounded-t-lg">
                     <Image
@@ -134,9 +155,15 @@ export default function AboutPage() {
                     />
                   </div>
                   <div className="p-6 text-center">
-                    <h3 className="text-xl font-bold text-amber-900 mb-2">{member.name}</h3>
-                    <Badge className="mb-3 bg-amber-600 text-white">{member.role}</Badge>
-                    <p className="text-gray-600 text-sm">{member.description}</p>
+                    <h3 className="text-xl font-bold text-amber-900 mb-2">
+                      {member.name}
+                    </h3>
+                    <Badge className="mb-3 bg-amber-600 text-white">
+                      {member.role}
+                    </Badge>
+                    <p className="text-gray-600 text-sm">
+                      {member.description}
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -149,9 +176,12 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-amber-900 mb-4">Keunikan Kami</h2>
+            <h2 className="text-4xl font-bold text-amber-900 mb-4">
+              Keunikan Kami
+            </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Hal-hal istimewa yang membuat pengalaman di coffee shop kami berbeda
+              Hal-hal istimewa yang membuat pengalaman di coffee shop kami
+              berbeda
             </p>
           </div>
 
@@ -160,22 +190,26 @@ export default function AboutPage() {
               {
                 icon: Coffee,
                 title: "Biji Kopi Lokal Premium",
-                description: "Kerjasama langsung dengan petani kopi lokal untuk kualitas terbaik",
+                description:
+                  "Kerjasama langsung dengan petani kopi lokal untuk kualitas terbaik",
               },
               {
                 icon: Heart,
                 title: "Suasana Homey",
-                description: "Interior hangat dengan sentuhan kayu dan tanaman yang menenangkan",
+                description:
+                  "Interior hangat dengan sentuhan kayu dan tanaman yang menenangkan",
               },
               {
                 icon: Users,
                 title: "Pelayanan Ramah",
-                description: "Tim barista berpengalaman yang siap memberikan rekomendasi terbaik",
+                description:
+                  "Tim barista berpengalaman yang siap memberikan rekomendasi terbaik",
               },
               {
                 icon: Award,
                 title: "Kualitas Terjamin",
-                description: "Standar brewing yang konsisten untuk setiap cangkir kopi",
+                description:
+                  "Standar brewing yang konsisten untuk setiap cangkir kopi",
               },
             ].map((feature, index) => (
               <Card
@@ -186,7 +220,9 @@ export default function AboutPage() {
                   <div className="p-4 bg-amber-100 rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
                     <feature.icon className="w-10 h-10 text-amber-600" />
                   </div>
-                  <h3 className="text-xl font-bold text-amber-900 mb-4">{feature.title}</h3>
+                  <h3 className="text-xl font-bold text-amber-900 mb-4">
+                    {feature.title}
+                  </h3>
                   <p className="text-gray-600">{feature.description}</p>
                 </CardContent>
               </Card>
@@ -195,5 +231,5 @@ export default function AboutPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }
