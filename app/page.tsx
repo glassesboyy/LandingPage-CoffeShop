@@ -51,7 +51,7 @@ export default function HomePage() {
               className="object-cover"
               priority={index === 0}
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-amber-950/90 via-amber-900/70 to-amber-950/90" />
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-950/90 via-amber-900/60 to-amber-950/90" />
           </div>
         ))}
 
@@ -155,28 +155,28 @@ export default function HomePage() {
               {
                 name: "Signature Latte",
                 price: "Rp 35.000",
-                image: "/placeholder.svg?height=300&width=300",
+                image: "/assets/menu/menu.jpg",
                 description:
                   "Espresso premium dengan steamed milk dan latte art cantik",
               },
               {
                 name: "Cold Brew Special",
                 price: "Rp 32.000",
-                image: "/placeholder.svg?height=300&width=300",
+                image: "/assets/menu/menu3.jpg",
                 description:
                   "Cold brew 12 jam dengan rasa smooth dan aroma khas",
               },
               {
                 name: "Cappuccino Klasik",
                 price: "Rp 30.000",
-                image: "/placeholder.svg?height=300&width=300",
+                image: "/assets/menu/menu2.jpg",
                 description:
                   "Perpaduan sempurna espresso, steamed milk, dan foam",
               },
               {
                 name: "Affogato Delight",
                 price: "Rp 38.000",
-                image: "/placeholder.svg?height=300&width=300",
+                image: "/assets/menu/menu4.jpg",
                 description: "Es krim vanilla premium disiram espresso panas",
               },
             ].map((item, index) => (
@@ -252,7 +252,7 @@ export default function HomePage() {
                 title: "Coffee Cupping Workshop",
                 date: "25 Januari 2024",
                 time: "14:00 - 16:00",
-                image: "/placeholder.svg?height=300&width=400",
+                image: "/assets/event/event.png",
                 description:
                   "Pelajari cara mencicipi dan menilai kopi seperti seorang profesional",
               },
@@ -260,7 +260,7 @@ export default function HomePage() {
                 title: "Latte Art Competition",
                 date: "10 Februari 2024",
                 time: "10:00 - 15:00",
-                image: "/placeholder.svg?height=300&width=400",
+                image: "/assets/event/event2.png",
                 description:
                   "Kompetisi latte art terbuka untuk semua level dengan hadiah menarik",
               },
@@ -333,7 +333,7 @@ export default function HomePage() {
                 comment:
                   "Tempat favorit saya untuk bekerja dan menikmati kopi berkualitas. Suasananya sangat nyaman dan barista-nya ramah sekali!",
                 rating: 5,
-                avatar: "/placeholder.svg?height=60&width=60",
+                avatar: "/placeholder-user.jpg",
               },
               {
                 name: "Ahmad Rizki",
@@ -341,7 +341,7 @@ export default function HomePage() {
                 comment:
                   "Cold brew mereka adalah yang terbaik di kota! Selalu jadi pilihan utama saat butuh caffeine boost untuk kerja.",
                 rating: 5,
-                avatar: "/placeholder.svg?height=60&width=60",
+                avatar: "/placeholder-user.jpg",
               },
             ].map((testimonial, index) => (
               <Card key={index} className="p-6 border-0 shadow-lg">
