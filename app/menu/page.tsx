@@ -20,7 +20,7 @@ const menuItems = {
       name: "Espresso",
       price: "Rp 25.000",
       description: "Shot espresso murni dengan crema sempurna",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu.jpg",
       category: "coffee",
       signature: false,
     },
@@ -28,7 +28,7 @@ const menuItems = {
       name: "Americano",
       price: "Rp 28.000",
       description: "Espresso dengan air panas, rasa kopi yang kuat",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu.jpg",
       category: "coffee",
       signature: false,
     },
@@ -36,7 +36,7 @@ const menuItems = {
       name: "Cappuccino",
       price: "Rp 30.000",
       description: "Espresso dengan steamed milk dan foam tebal",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu.jpg",
       category: "coffee",
       signature: false,
     },
@@ -44,7 +44,7 @@ const menuItems = {
       name: "Signature Latte",
       price: "Rp 35.000",
       description: "Latte premium dengan latte art cantik",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu.jpg",
       category: "coffee",
       signature: true,
     },
@@ -52,7 +52,7 @@ const menuItems = {
       name: "Cold Brew Special",
       price: "Rp 32.000",
       description: "Cold brew 12 jam dengan rasa smooth",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu.jpg",
       category: "coffee",
       signature: true,
     },
@@ -60,7 +60,7 @@ const menuItems = {
       name: "Flat White",
       price: "Rp 33.000",
       description: "Double shot espresso dengan microfoam",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu.jpg",
       category: "coffee",
       signature: false,
     },
@@ -70,7 +70,7 @@ const menuItems = {
       name: "Hot Chocolate",
       price: "Rp 30.000",
       description: "Cokelat panas premium dengan whipped cream",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu3.jpg",
       category: "nonCoffee",
       signature: false,
     },
@@ -78,7 +78,7 @@ const menuItems = {
       name: "Matcha Latte",
       price: "Rp 32.000",
       description: "Matcha premium dengan steamed milk",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu3.jpg",
       category: "nonCoffee",
       signature: false,
     },
@@ -86,7 +86,7 @@ const menuItems = {
       name: "Earl Grey Tea",
       price: "Rp 25.000",
       description: "Teh Earl Grey dengan aroma bergamot",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu3.jpg",
       category: "nonCoffee",
       signature: false,
     },
@@ -94,7 +94,7 @@ const menuItems = {
       name: "Iced Chocolate",
       price: "Rp 28.000",
       description: "Cokelat dingin dengan es dan whipped cream",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu3.jpg",
       category: "nonCoffee",
       signature: false,
     },
@@ -104,7 +104,7 @@ const menuItems = {
       name: "Croissant Butter",
       price: "Rp 20.000",
       description: "Croissant segar dengan butter premium",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu5.jpg",
       category: "food",
       signature: false,
     },
@@ -112,7 +112,7 @@ const menuItems = {
       name: "Sandwich Club",
       price: "Rp 45.000",
       description: "Sandwich dengan ayam, sayuran segar, dan saus special",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu5.jpg",
       category: "food",
       signature: false,
     },
@@ -120,7 +120,7 @@ const menuItems = {
       name: "Pasta Carbonara",
       price: "Rp 55.000",
       description: "Pasta dengan saus carbonara creamy dan bacon",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu5.jpg",
       category: "food",
       signature: true,
     },
@@ -128,7 +128,7 @@ const menuItems = {
       name: "Cheesecake",
       price: "Rp 35.000",
       description: "Cheesecake lembut dengan berry sauce",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu5.jpg",
       category: "food",
       signature: false,
     },
@@ -138,7 +138,7 @@ const menuItems = {
       name: "Signature Latte",
       price: "Rp 35.000",
       description: "Latte premium dengan latte art cantik",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu4.jpg",
       category: "coffee",
       signature: true,
     },
@@ -146,7 +146,7 @@ const menuItems = {
       name: "Cold Brew Special",
       price: "Rp 32.000",
       description: "Cold brew 12 jam dengan rasa smooth",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu4.jpg",
       category: "coffee",
       signature: true,
     },
@@ -154,7 +154,7 @@ const menuItems = {
       name: "Affogato Delight",
       price: "Rp 38.000",
       description: "Es krim vanilla dengan espresso shot",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu4.jpg",
       category: "signature",
       signature: true,
     },
@@ -162,7 +162,7 @@ const menuItems = {
       name: "Pasta Carbonara",
       price: "Rp 55.000",
       description: "Pasta dengan saus carbonara creamy dan bacon",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/assets/menu/menu4.jpg",
       category: "food",
       signature: true,
     },
@@ -305,9 +305,9 @@ function MenuCard({ item }: { item: any }) {
           <Image
             src={item.image || "/placeholder.svg"}
             alt={item.name}
-            width={300}
-            height={200}
-            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            width={100}
+            height={100}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
           {item.signature && (
             <Badge className="absolute top-4 right-4 bg-amber-600 text-white">
@@ -323,7 +323,7 @@ function MenuCard({ item }: { item: any }) {
               {item.price}
             </span>
             <Button size="sm" className="bg-amber-600 hover:bg-amber-700">
-              Pesan
+              Lihat Detail
             </Button>
           </div>
         </div>

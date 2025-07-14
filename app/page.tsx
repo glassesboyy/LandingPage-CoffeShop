@@ -212,7 +212,7 @@ export default function HomePage() {
                         size="sm"
                         className="bg-amber-600 hover:bg-amber-700"
                       >
-                        Pesan
+                        Lihat Detail
                       </Button>
                     </div>
                   </div>
@@ -291,7 +291,7 @@ export default function HomePage() {
                     </h3>
                     <p className="text-gray-600 mb-4">{event.description}</p>
                     <Button className="w-full bg-amber-600 hover:bg-amber-700">
-                      Daftar Sekarang
+                      Lihat Detail Event
                     </Button>
                   </div>
                 </CardContent>

@@ -59,10 +59,10 @@ export default function AboutPage() {
             </div>
             <div className="relative">
               <Image
-                src="/placeholder.svg?height=600&width=500"
+                src="/assets/random/hero.jpeg"
                 alt="Coffee Shop Story"
-                width={500}
-                height={600}
+                width={900}
+                height={900}
                 className="rounded-lg shadow-xl"
               />
             </div>
@@ -73,10 +73,10 @@ export default function AboutPage() {
             <Card className="p-8 border-0 shadow-lg bg-amber-50">
               <CardContent className="p-0">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-amber-600 rounded-full">
+                  <div className="p-2 bg-amber-600">
                     <Heart className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-amber-900">
+                  <h3 className="text-3xl font-bold text-amber-900">
                     Visi Kami
                   </h3>
                 </div>
@@ -91,10 +91,10 @@ export default function AboutPage() {
             <Card className="p-8 border-0 shadow-lg bg-amber-50">
               <CardContent className="p-0">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-amber-600 rounded-full">
+                  <div className="p-2 bg-amber-600">
                     <Coffee className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-amber-900">
+                  <h3 className="text-3xl font-bold text-amber-900">
                     Misi Kami
                   </h3>
                 </div>
@@ -125,27 +125,27 @@ export default function AboutPage() {
               {
                 name: "Budi Santoso",
                 role: "Owner & Head Barista",
-                image: "/placeholder.svg?height=300&width=300",
+                image: "/assets/person/barista2.jpg",
                 description:
                   "Passionate coffee enthusiast dengan 8 tahun pengalaman",
               },
               {
                 name: "Maya Sari",
                 role: "Senior Barista",
-                image: "/placeholder.svg?height=300&width=300",
+                image: "/assets/person/barista.jpg",
                 description:
                   "Spesialis latte art dan coffee brewing techniques",
               },
               {
                 name: "Rizki Pratama",
                 role: "Barista",
-                image: "/placeholder.svg?height=300&width=300",
+                image: "/assets/person/barista3.jpg",
                 description: "Expert dalam cold brew dan specialty coffee",
               },
               {
                 name: "Sinta Dewi",
                 role: "Store Manager",
-                image: "/placeholder.svg?height=300&width=300",
+                image: "/assets/person/barista4.jpg",
                 description:
                   "Memastikan pelayanan terbaik untuk setiap pelanggan",
               },
@@ -227,8 +227,8 @@ export default function AboutPage() {
                 className="p-6 text-center border-0 shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 <CardContent className="p-0">
-                  <div className="p-4 bg-amber-100 rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
-                    <feature.icon className="w-10 h-10 text-amber-600" />
+                  <div className="p-4 bg-amber-50 rounded-t-3xl w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                    <feature.icon className="w-20 h-20 text-amber-600" />
                   </div>
                   <h3 className="text-xl font-bold text-amber-900 mb-4">
                     {feature.title}
