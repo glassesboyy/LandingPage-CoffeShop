@@ -1,7 +1,12 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 import { useState } from "react";
@@ -12,31 +17,38 @@ const galleryImages = {
       src: "/assets/gallery/interior/interior.jpg",
       alt: "Interior Coffee Shop - Seating Area",
       title: "Area Duduk Utama",
+      description: "Area duduk yang nyaman dengan pencahayaan hangat.",
     },
     {
       src: "/assets/gallery/interior/interior2.jpg",
       alt: "Interior Coffee Shop - Counter",
       title: "Counter & Bar Area",
+      description:
+        "Counter tempat barista menyajikan kopi dengan penuh keahlian.",
     },
     {
       src: "/assets/gallery/interior/interior3.jpg",
       alt: "Interior Coffee Shop - Cozy Corner",
       title: "Sudut Nyaman",
+      description: "Sudut nyaman untuk bersantai dengan secangkir kopi.",
     },
     {
       src: "/assets/gallery/interior/interior4.jpg",
       alt: "Interior Coffee Shop - Work Space",
       title: "Area Kerja",
+      description: "Area kerja yang nyaman untuk bekerja atau belajar.",
     },
     {
       src: "/assets/gallery/interior/interior5.jpg",
       alt: "Interior Coffee Shop - Decoration",
       title: "Dekorasi Interior",
+      description: "Dekorasi yang menciptakan suasana hangat dan nyaman.",
     },
     {
       src: "/assets/gallery/interior/interior6.jpg",
       alt: "Interior Coffee Shop - Lighting",
       title: "Pencahayaan Hangat",
+      description: "Pencahayaan yang menciptakan suasana hangat dan nyaman.",
     },
   ],
   barista: [
@@ -44,31 +56,40 @@ const galleryImages = {
       src: "/assets/gallery/barista/barista.jpg",
       alt: "Barista Making Coffee",
       title: "Proses Pembuatan Kopi",
+      description: "Barista sedang menyeduh kopi dengan penuh perhatian.",
     },
     {
       src: "/assets/gallery/barista/barista2.jpg",
       alt: "Latte Art Creation",
       title: "Pembuatan Latte Art",
+      description: "Barista sedang membuat latte art yang indah.",
     },
     {
       src: "/assets/gallery/barista/barista3.jpg",
       alt: "Coffee Grinding",
       title: "Proses Grinding Biji Kopi",
+      description:
+        "Barista sedang menggiling biji kopi segar untuk penyeduhan.",
     },
     {
       src: "/assets/gallery/barista/barista4.jpg",
       alt: "Espresso Extraction",
       title: "Ekstraksi Espresso",
+      description:
+        "Barista sedang mengekstrak espresso dengan teknik yang tepat.",
     },
     {
       src: "/assets/gallery/barista/barista5.jpg",
       alt: "Coffee Beans Selection",
       title: "Seleksi Biji Kopi",
+      description: "Barista memilih biji kopi berkualitas untuk disajikan.",
     },
     {
       src: "/assets/gallery/barista/barista6.jpg",
       alt: "Brewing Process",
       title: "Proses Brewing",
+      description:
+        "Barista sedang melakukan proses brewing kopi dengan hati-hati.",
     },
   ],
   customers: [
@@ -76,31 +97,38 @@ const galleryImages = {
       src: "/assets/gallery/pelanggan/pelanggan.jpg",
       alt: "Customers Enjoying Coffee",
       title: "Pelanggan Menikmati Kopi",
+      description: "Pelanggan menikmati kopi di area duduk yang nyaman.",
     },
     {
       src: "/assets/gallery/pelanggan/pelanggan2.jpg",
       alt: "Business Meeting",
       title: "Meeting Bisnis",
+      description: "Pelanggan melakukan meeting bisnis sambil menikmati kopi.",
     },
     {
       src: "/assets/gallery/pelanggan/pelanggan3.jpg",
       alt: "Study Session",
       title: "Sesi Belajar",
+      description: "Pelanggan belajar sambil menikmati kopi di coffee shop.",
     },
     {
       src: "/assets/gallery/pelanggan/pelanggan4.jpg",
       alt: "Friends Gathering",
       title: "Kumpul Teman",
+      description: "Pelanggan berkumpul bersama teman-teman menikmati kopi.",
     },
     {
       src: "/assets/gallery/pelanggan/pelanggan5.jpg",
       alt: "Solo Work",
       title: "Kerja Mandiri",
+      description: "Pelanggan menikmati waktu sendiri sambil bekerja.",
     },
     {
       src: "/assets/gallery/pelanggan/pelanggan6.jpg",
       alt: "Coffee Tasting",
       title: "Coffee Tasting",
+      description:
+        "Pelanggan mencicipi berbagai jenis kopi yang kami tawarkan.",
     },
   ],
   events: [
@@ -108,31 +136,37 @@ const galleryImages = {
       src: "/assets/gallery/event/event.jpg",
       alt: "Coffee Workshop",
       title: "Workshop Kopi",
+      description: "Workshop tentang teknik penyeduhan kopi yang benar.",
     },
     {
       src: "/assets/gallery/event/event2.jpg",
       alt: "Latte Art Competition",
       title: "Kompetisi Latte Art",
+      description: "Kompetisi seni latte dengan berbagai peserta.",
     },
     {
       src: "/assets/gallery/event/event3.jpg",
       alt: "Music Performance",
       title: "Pertunjukan Musik",
+      description: "Pertunjukan musik akustik oleh musisi lokal.",
     },
     {
       src: "/assets/gallery/event/event4.jpg",
       alt: "Book Reading",
       title: "Acara Baca Buku",
+      description: "Acara baca buku dengan penulis lokal.",
     },
     {
       src: "/assets/gallery/event/event5.jpg",
       alt: "Community Gathering",
       title: "Gathering Komunitas",
+      description: "Gathering komunitas untuk berbagi pengalaman dan cerita.",
     },
     {
       src: "/assets/gallery/event/event6.jpg",
       alt: "Coffee Cupping",
       title: "Coffee Cupping Session",
+      description: "Sesi cupping kopi untuk mencicipi berbagai jenis kopi.",
     },
   ],
 };
@@ -262,6 +296,7 @@ type GalleryImage = {
   src: string;
   alt: string;
   title: string;
+  description: string;
 };
 
 function GalleryGrid({ images }: { images: GalleryImage[] }) {
@@ -288,7 +323,7 @@ function GalleryGrid({ images }: { images: GalleryImage[] }) {
               </CardContent>
             </Card>
           </DialogTrigger>
-          <DialogContent className="max-w-4xl">
+          <DialogContent className="max-w-4xl pt-10 px-6">
             <div className="relative">
               <Image
                 src={image.src || "/placeholder.svg"}
@@ -297,11 +332,12 @@ function GalleryGrid({ images }: { images: GalleryImage[] }) {
                 height={600}
                 className="w-full h-auto rounded-lg"
               />
-              <div className="mt-4">
-                <h3 className="text-xl font-bold text-amber-900">
-                  {image.title}
-                </h3>
-              </div>
+            </div>
+            <div className="space-y-2">
+              <DialogTitle className="text-amber-900 font-semibold text-4xl">
+                {image.title}
+              </DialogTitle>
+              <p className="text-gray-600 text-lg">{image.description}</p>
             </div>
           </DialogContent>
         </Dialog>

@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Coffee, Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -26,7 +27,14 @@ export default function Header() {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center">
+            {/* Logo image */}
+            <Image
+              src="/assets/random/logo.png"
+              alt="Noir Coffee Logo"
+              width={47}
+              height={47}
+            />
             <span className="text-2xl font-bold font-serif text-amber-900">
               Noir Coffee
             </span>
