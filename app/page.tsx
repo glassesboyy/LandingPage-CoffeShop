@@ -371,7 +371,7 @@ export default function HomePage() {
                     ))}
                   </div>
                   <p className="text-gray-700 italic flex-grow">
-                    "{testimonial.comment}"
+                    &quot;{testimonial.comment}&quot;
                   </p>
                 </CardContent>
               </Card>

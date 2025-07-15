@@ -169,11 +169,20 @@ const menuItems = {
   ],
 };
 
+type MenuItem = {
+  name: string;
+  price: string;
+  description: string;
+  image: string;
+  category: string;
+  signature: boolean;
+};
+
 export default function MenuPage() {
   const [sortBy, setSortBy] = useState("name");
   const [activeTab, setActiveTab] = useState("coffee");
 
-  const sortItems = (items: any[]) => {
+  const sortItems = (items: MenuItem[]) => {
     return [...items].sort((a, b) => {
       if (sortBy === "price") {
         const priceA = Number.parseInt(a.price.replace(/\D/g, ""));
@@ -297,7 +306,7 @@ export default function MenuPage() {
   );
 }
 
-function MenuCard({ item }: { item: any }) {
+function MenuCard({ item }: { item: MenuItem }) {
   return (
     <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md">
       <CardContent className="p-0">

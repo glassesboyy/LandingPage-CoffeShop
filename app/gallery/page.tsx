@@ -258,7 +258,13 @@ export default function GalleryPage() {
   );
 }
 
-function GalleryGrid({ images }: { images: any[] }) {
+type GalleryImage = {
+  src: string;
+  alt: string;
+  title: string;
+};
+
+function GalleryGrid({ images }: { images: GalleryImage[] }) {
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {images.map((image, index) => (

@@ -96,10 +96,6 @@ const testimonials = [
 ];
 
 export default function TestimonialsPage() {
-  const averageRating =
-    testimonials.reduce((acc, curr) => acc + curr.rating, 0) /
-    testimonials.length;
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -175,7 +171,7 @@ export default function TestimonialsPage() {
 
                   {/* Comment */}
                   <p className="text-gray-700 italic leading-relaxed">
-                    "{testimonial.comment}"
+                    &quot;{testimonial.comment}&quot;
                   </p>
                 </CardContent>
               </Card>
