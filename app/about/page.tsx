@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Award, Coffee, Heart, Users } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { teamMembers } from "../data/data-team";
 
 export default function AboutPage() {
   const [hoveredImage, setHoveredImage] = useState<number | null>(null);
@@ -219,35 +220,7 @@ export default function AboutPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                name: "Budi Santoso",
-                role: "Owner & Head Barista",
-                image: "/assets/person/barista2.jpg",
-                description:
-                  "Passionate coffee enthusiast dengan 8 tahun pengalaman",
-              },
-              {
-                name: "Maya Sari",
-                role: "Senior Barista",
-                image: "/assets/person/barista.jpg",
-                description:
-                  "Spesialis latte art dan coffee brewing techniques",
-              },
-              {
-                name: "Rizki Pratama",
-                role: "Barista",
-                image: "/assets/person/barista3.jpg",
-                description: "Expert dalam cold brew dan specialty coffee",
-              },
-              {
-                name: "Sinta Dewi",
-                role: "Store Manager",
-                image: "/assets/person/barista4.jpg",
-                description:
-                  "Memastikan pelayanan terbaik untuk setiap pelanggan",
-              },
-            ].map((member, index) => (
+            {teamMembers.map((member, index) => (
               <Card
                 key={index}
                 className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md"
@@ -263,13 +236,13 @@ export default function AboutPage() {
                     />
                   </div>
                   <div className="p-6 text-center">
-                    <h3 className="text-xl font-bold text-amber-900 mb-2">
-                      {member.name}
-                    </h3>
-                    <Badge className="mb-3 bg-amber-600 text-white">
+                    <Badge className="bg-amber-600 text-white">
                       {member.role}
                     </Badge>
-                    <p className="text-gray-600 text-sm">
+                    <h3 className="text-3xl font-bold text-amber-900 mb-2">
+                      {member.name}
+                    </h3>
+                    <p className="text-gray-600 text-md">
                       {member.description}
                     </p>
                   </div>
