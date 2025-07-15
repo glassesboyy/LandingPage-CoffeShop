@@ -9,128 +9,128 @@ import { useState } from "react";
 const galleryImages = {
   interior: [
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/interior/interior.jpg",
       alt: "Interior Coffee Shop - Seating Area",
       title: "Area Duduk Utama",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/interior/interior2.jpg",
       alt: "Interior Coffee Shop - Counter",
       title: "Counter & Bar Area",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/interior/interior3.jpg",
       alt: "Interior Coffee Shop - Cozy Corner",
       title: "Sudut Nyaman",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/interior/interior4.jpg",
       alt: "Interior Coffee Shop - Work Space",
       title: "Area Kerja",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/interior/interior5.jpg",
       alt: "Interior Coffee Shop - Decoration",
       title: "Dekorasi Interior",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/interior/interior6.jpg",
       alt: "Interior Coffee Shop - Lighting",
       title: "Pencahayaan Hangat",
     },
   ],
   barista: [
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/barista/barista.jpg",
       alt: "Barista Making Coffee",
       title: "Proses Pembuatan Kopi",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/barista/barista2.jpg",
       alt: "Latte Art Creation",
       title: "Pembuatan Latte Art",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/barista/barista3.jpg",
       alt: "Coffee Grinding",
       title: "Proses Grinding Biji Kopi",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/barista/barista4.jpg",
       alt: "Espresso Extraction",
       title: "Ekstraksi Espresso",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/barista/barista5.jpg",
       alt: "Coffee Beans Selection",
       title: "Seleksi Biji Kopi",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/barista/barista6.jpg",
       alt: "Brewing Process",
       title: "Proses Brewing",
     },
   ],
   customers: [
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/pelanggan/pelanggan.jpg",
       alt: "Customers Enjoying Coffee",
       title: "Pelanggan Menikmati Kopi",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/pelanggan/pelanggan2.jpg",
       alt: "Business Meeting",
       title: "Meeting Bisnis",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/pelanggan/pelanggan3.jpg",
       alt: "Study Session",
       title: "Sesi Belajar",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/pelanggan/pelanggan4.jpg",
       alt: "Friends Gathering",
       title: "Kumpul Teman",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/pelanggan/pelanggan5.jpg",
       alt: "Solo Work",
       title: "Kerja Mandiri",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/pelanggan/pelanggan6.jpg",
       alt: "Coffee Tasting",
       title: "Coffee Tasting",
     },
   ],
   events: [
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/event/event.jpg",
       alt: "Coffee Workshop",
       title: "Workshop Kopi",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/event/event2.jpg",
       alt: "Latte Art Competition",
       title: "Kompetisi Latte Art",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/event/event3.jpg",
       alt: "Music Performance",
       title: "Pertunjukan Musik",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/event/event4.jpg",
       alt: "Book Reading",
       title: "Acara Baca Buku",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/event/event5.jpg",
       alt: "Community Gathering",
       title: "Gathering Komunitas",
     },
     {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "/assets/gallery/event/event6.jpg",
       alt: "Coffee Cupping",
       title: "Coffee Cupping Session",
     },

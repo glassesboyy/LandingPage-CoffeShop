@@ -7,7 +7,7 @@ const testimonials = [
     id: 1,
     name: "Sarah Wijaya",
     role: "Coffee Enthusiast",
-    avatar: "/placeholder.svg?height=80&width=80",
+    avatar: "/placeholder-user.jpg",
     rating: 5,
     comment:
       "Tempat favorit saya untuk bekerja dan menikmati kopi berkualitas. Suasananya sangat nyaman dan barista-nya ramah sekali! Cold brew mereka adalah yang terbaik di kota.",
@@ -17,7 +17,7 @@ const testimonials = [
     id: 2,
     name: "Ahmad Rizki",
     role: "Freelancer",
-    avatar: "/placeholder.svg?height=80&width=80",
+    avatar: "/placeholder-user.jpg",
     rating: 5,
     comment:
       "Cold brew mereka adalah yang terbaik di kota! Selalu jadi pilihan utama saat butuh caffeine boost untuk kerja. WiFi cepat dan tempat duduk nyaman.",
@@ -27,7 +27,7 @@ const testimonials = [
     id: 3,
     name: "Maya Sari",
     role: "Mahasiswa",
-    avatar: "/placeholder.svg?height=80&width=80",
+    avatar: "/placeholder-user.jpg",
     rating: 5,
     comment:
       "Perfect place untuk study session! Kopinya enak, suasananya tenang, dan harganya student-friendly. Latte art-nya juga cantik banget!",
@@ -37,7 +37,7 @@ const testimonials = [
     id: 4,
     name: "Budi Santoso",
     role: "Business Owner",
-    avatar: "/placeholder.svg?height=80&width=80",
+    avatar: "/placeholder-user.jpg",
     rating: 5,
     comment:
       "Sering meeting klien di sini karena suasananya profesional tapi tetap hangat. Pelayanannya excellent dan menu makanannya juga enak.",
@@ -47,7 +47,7 @@ const testimonials = [
     id: 5,
     name: "Rina Putri",
     role: "Designer",
-    avatar: "/placeholder.svg?height=80&width=80",
+    avatar: "/placeholder-user.jpg",
     rating: 5,
     comment:
       "Interior design-nya aesthetic banget! Instagram-worthy dan kopinya juga top quality. Signature latte mereka must try!",
@@ -57,7 +57,7 @@ const testimonials = [
     id: 6,
     name: "Doni Pratama",
     role: "Software Developer",
-    avatar: "/placeholder.svg?height=80&width=80",
+    avatar: "/placeholder-user.jpg",
     rating: 5,
     comment:
       "Coding sambil ngopi di sini adalah kombinasi sempurna. Americano-nya strong, WiFi stabil, dan ada colokan di setiap meja. Recommended!",
@@ -67,7 +67,7 @@ const testimonials = [
     id: 7,
     name: "Lisa Anggraini",
     role: "Marketing Manager",
-    avatar: "/placeholder.svg?height=80&width=80",
+    avatar: "/placeholder-user.jpg",
     rating: 5,
     comment:
       "Event coffee cupping workshop-nya sangat edukatif! Jadi lebih paham tentang kopi berkualitas. Staff-nya knowledgeable dan friendly.",
@@ -77,7 +77,7 @@ const testimonials = [
     id: 8,
     name: "Eko Wijaya",
     role: "Photographer",
-    avatar: "/placeholder.svg?height=80&width=80",
+    avatar: "/placeholder-user.jpg",
     rating: 5,
     comment:
       "Lighting-nya perfect untuk foto, kopinya photogenic, dan rasanya juga amazing. Sering jadiin ini sebagai lokasi photo session dengan klien.",
@@ -87,7 +87,7 @@ const testimonials = [
     id: 9,
     name: "Sinta Dewi",
     role: "Teacher",
-    avatar: "/placeholder.svg?height=80&width=80",
+    avatar: "/placeholder-user.jpg",
     rating: 5,
     comment:
       "Tempat yang tepat untuk me-time setelah mengajar. Cappuccino-nya creamy dan croissant-nya fresh. Suasananya bikin stress hilang.",
@@ -119,28 +119,9 @@ export default function TestimonialsPage() {
             <h1 className="text-5xl md:text-6xl font-bold mb-4">
               Testimoni Pelanggan
             </h1>
-            <p className="text-lg md:text-xl text-amber-100 mb-4">
+            <p className="text-lg md:text-xl text-amber-100">
               Dengarkan pengalaman nyata dari pelanggan setia kami
             </p>
-            {/* Rating Summary */}
-            <div className="flex items-center justify-center gap-4 bg-amber-900 rounded-lg p-6 max-w-md mx-auto">
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">
-                  {averageRating.toFixed(1)}
-                </div>
-                <div className="flex justify-center gap-1 mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 fill-amber-300 text-amber-300"
-                    />
-                  ))}
-                </div>
-                <div className="text-sm text-amber-200">
-                  dari {testimonials.length} ulasan
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -156,7 +137,7 @@ export default function TestimonialsPage() {
               >
                 <CardContent className="p-6">
                   {/* Quote Icon */}
-                  <div className="absolute top-4 right-4 opacity-10">
+                  <div className="absolute top-4 right-4 opacity-20">
                     <Quote className="w-8 h-8 text-amber-600" />
                   </div>
 

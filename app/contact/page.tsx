@@ -78,18 +78,18 @@ export default function ContactPage() {
                 Informasi Kontak
               </h2>
 
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <Card className="p-6 border-0 shadow-lg">
                   <CardContent className="p-0">
                     <div className="flex items-start gap-4">
-                      <div className="p-3 bg-amber-100 rounded-full">
+                      <div className="p-3 bg-amber-100 rounded-t-2xl">
                         <MapPin className="w-6 h-6 text-amber-600" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-amber-900 mb-2">
+                        <h3 className="text-2xl font-bold text-amber-900 mb-1">
                           Alamat
                         </h3>
-                        <p className="text-gray-700">
+                        <p className="text-gray-700 text-sm">
                           Jl. Sudirman No. 123
                           <br />
                           Malang, Jawa Timur 65145
@@ -104,14 +104,14 @@ export default function ContactPage() {
                 <Card className="p-6 border-0 shadow-lg">
                   <CardContent className="p-0">
                     <div className="flex items-start gap-4">
-                      <div className="p-3 bg-amber-100 rounded-full">
+                      <div className="p-3 bg-amber-100 rounded-t-2xl">
                         <Phone className="w-6 h-6 text-amber-600" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-amber-900 mb-2">
+                        <h3 className="text-2xl font-bold text-amber-900 mb-1">
                           Telepon
                         </h3>
-                        <p className="text-gray-700">
+                        <p className="text-gray-700 text-sm">
                           +62 341 123 4567
                           <br />
                           WhatsApp: +62 812 3456 7890
@@ -124,14 +124,14 @@ export default function ContactPage() {
                 <Card className="p-6 border-0 shadow-lg">
                   <CardContent className="p-0">
                     <div className="flex items-start gap-4">
-                      <div className="p-3 bg-amber-100 rounded-full">
+                      <div className="p-3 bg-amber-100 rounded-t-2xl">
                         <Mail className="w-6 h-6 text-amber-600" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-amber-900 mb-2">
+                        <h3 className="text-2xl font-bold text-amber-900 mb-1">
                           Email
                         </h3>
-                        <p className="text-gray-700">
+                        <p className="text-gray-700 text-sm">
                           info@coffeeshop.com
                           <br />
                           order@coffeeshop.com
@@ -144,19 +144,16 @@ export default function ContactPage() {
                 <Card className="p-6 border-0 shadow-lg">
                   <CardContent className="p-0">
                     <div className="flex items-start gap-4">
-                      <div className="p-3 bg-amber-100 rounded-full">
+                      <div className="p-3 bg-amber-100 rounded-t-2xl">
                         <Clock className="w-6 h-6 text-amber-600" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-amber-900 mb-2">
+                        <h3 className="text-2xl font-bold text-amber-900 mb-1">
                           Jam Operasional
                         </h3>
-                        <div className="text-gray-700 space-y-1">
+                        <div className="text-gray-700 text-sm">
                           <p>Senin - Jumat: 07:00 - 22:00</p>
                           <p>Sabtu - Minggu: 08:00 - 23:00</p>
-                          <p className="text-amber-600 font-medium">
-                            Buka setiap hari
-                          </p>
                         </div>
                       </div>
                     </div>
@@ -166,8 +163,8 @@ export default function ContactPage() {
 
               {/* Social Media */}
               <div className="mt-8">
-                <h3 className="text-xl font-bold text-amber-900 mb-4">
-                  Ikuti Kami
+                <h3 className="text-2xl font-bold text-amber-900 mb-4">
+                  Ikuti Kami di Berbagai Platfrom
                 </h3>
                 <div className="flex gap-4">
                   <Button size="sm" className="bg-pink-600 hover:bg-pink-700">
