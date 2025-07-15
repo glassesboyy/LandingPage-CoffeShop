@@ -5,7 +5,7 @@ import {
   MapPin,
   MessageCircle,
   Phone,
-  Twitter, // ganti X menjadi Twitter
+  Twitter,
   Youtube,
 } from "lucide-react";
 import Image from "next/image";

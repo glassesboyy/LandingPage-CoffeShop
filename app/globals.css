@@ -92,3 +92,10 @@ html {
 .animate-fadeInUp {
   animation: fadeInUp 0.6s ease-out;
 }
+
+/* Preloader custom styles */
+.preloader-bg {
+  background: linear-gradient(135deg, #3b1d0f 0%, #7c4a1e 100%);
+  /* Sedikit efek glass */
+  backdrop-filter: blur(2px);
+}

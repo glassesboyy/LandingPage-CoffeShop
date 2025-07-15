@@ -59,17 +59,6 @@ export default function HomePage() {
         {/* Static Content */}
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="text-center text-white max-w-4xl mx-auto px-4">
-            {/* Logo di atas judul */}
-            <div className="flex justify-center -mb-4">
-              <Image
-                src="/assets/random/logo.png"
-                alt="Logo Coffee Shop"
-                width={150}
-                height={150}
-                className="mx-auto drop-shadow-lg"
-                priority
-              />
-            </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               {heroContent.title}
               <span className="block text-amber-300">
