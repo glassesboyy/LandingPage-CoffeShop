@@ -34,6 +34,15 @@ export default function HomePage() {
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
+  const { coffee, nonCoffee, food, signature } =
+    require("./data/data-menu").menuItems;
+  const signatureMenuItems = [
+    ...coffee,
+    ...nonCoffee,
+    ...food,
+    ...signature,
+  ].filter((item) => item.signature);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section with Fade Carousel */}
@@ -247,35 +256,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-            {[
-              {
-                name: "Signature Latte",
-                price: "Rp 35.000",
-                image: "/assets/menu/menu.jpg",
-                description:
-                  "Espresso premium dengan steamed milk dan latte art cantik",
-              },
-              {
-                name: "Cold Brew Special",
-                price: "Rp 32.000",
-                image: "/assets/menu/menu3.jpg",
-                description:
-                  "Cold brew 12 jam dengan rasa smooth dan aroma khas",
-              },
-              {
-                name: "Cappuccino Klasik",
-                price: "Rp 30.000",
-                image: "/assets/menu/menu2.jpg",
-                description:
-                  "Perpaduan sempurna espresso, steamed milk, dan foam",
-              },
-              {
-                name: "Affogato Delight",
-                price: "Rp 38.000",
-                image: "/assets/menu/menu4.jpg",
-                description: "Es krim vanilla premium disiram espresso panas",
-              },
-            ].map((item, index) => (
+            {signatureMenuItems.map((item, index) => (
               <Card
                 key={index}
                 className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-md"
