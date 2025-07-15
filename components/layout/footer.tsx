@@ -3,9 +3,12 @@ import {
   Instagram,
   Mail,
   MapPin,
+  MessageCircle,
   Phone,
-  Twitter,
+  Twitter, // ganti X menjadi Twitter
+  Youtube,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -16,6 +19,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
+              {/* Logo image */}
+              <Image
+                src="/assets/random/logo.png"
+                alt="Noir Coffee Logo"
+                width={32}
+                height={32}
+              />
               <span className="text-2xl font-serif font-bold">Noir Coffee</span>
             </div>
             <p className="text-amber-100 mb-4">
@@ -40,6 +50,18 @@ export default function Footer() {
                 className="text-amber-200 hover:text-white transition-colors"
               >
                 <Twitter className="h-5 w-5" />
+              </Link>
+              <Link
+                href="#"
+                className="text-amber-200 hover:text-white transition-colors"
+              >
+                <Youtube className="h-5 w-5" />
+              </Link>
+              <Link
+                href="#"
+                className="text-amber-200 hover:text-white transition-colors"
+              >
+                <MessageCircle className="h-5 w-5" />
               </Link>
             </div>
           </div>

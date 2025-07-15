@@ -487,7 +487,6 @@ export default function HomePage() {
                       alt={testimonial.name}
                       width={72}
                       height={72}
-                      className="border-4 border-amber-100 shadow"
                     />
                     <div>
                       <h4 className="font-bold text-amber-900 text-lg">

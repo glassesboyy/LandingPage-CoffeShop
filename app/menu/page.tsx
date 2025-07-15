@@ -222,9 +222,28 @@ export default function MenuPage() {
         <div className="container mx-auto px-4">
           {/* Filter Controls */}
           <div className="flex flex-col sm:flex-row justify-between items-center mb-12 gap-4">
-            <h2 className="text-3xl font-bold text-amber-900">
-              Pilih Kategori
-            </h2>
+            <div className="flex flex-col items-start">
+              <Badge
+                className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
+                icon={
+                  <Image
+                    src="/assets/random/logo.png"
+                    alt="Logo"
+                    width={13.7}
+                    height={13.7}
+                  />
+                }
+              >
+                Menu
+              </Badge>
+              <h2 className="text-3xl font-bold text-amber-900">
+                Pilih Kategori
+              </h2>
+              <p className="text-base text-gray-600 mt-2">
+                Temukan minuman dan makanan favoritmu dari berbagai kategori
+                yang tersedia di coffee shop kami.
+              </p>
+            </div>
             <Select value={sortBy} onValueChange={setSortBy}>
               <SelectTrigger className="w-48">
                 <SelectValue placeholder="Urutkan berdasarkan" />

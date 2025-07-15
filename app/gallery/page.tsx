@@ -1,5 +1,6 @@
 "use client";
 
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Dialog,
@@ -236,6 +237,19 @@ export default function GalleryPage() {
 
             <TabsContent value="interior">
               <div className="mb-8">
+                <Badge
+                  className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
+                  icon={
+                    <Image
+                      src="/assets/random/logo.png"
+                      alt="Logo"
+                      width={13.7}
+                      height={13.7}
+                    />
+                  }
+                >
+                  Interior
+                </Badge>
                 <h2 className="text-3xl font-bold text-amber-900 mb-4">
                   Interior & Eksterior
                 </h2>
@@ -249,6 +263,19 @@ export default function GalleryPage() {
 
             <TabsContent value="barista">
               <div className="mb-8">
+                <Badge
+                  className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
+                  icon={
+                    <Image
+                      src="/assets/random/logo.png"
+                      alt="Logo"
+                      width={13.7}
+                      height={13.7}
+                    />
+                  }
+                >
+                  Barista
+                </Badge>
                 <h2 className="text-3xl font-bold text-amber-900 mb-4">
                   Aktivitas Barista
                 </h2>
@@ -262,6 +289,19 @@ export default function GalleryPage() {
 
             <TabsContent value="customers">
               <div className="mb-8">
+                <Badge
+                  className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
+                  icon={
+                    <Image
+                      src="/assets/random/logo.png"
+                      alt="Logo"
+                      width={13.7}
+                      height={13.7}
+                    />
+                  }
+                >
+                  Pelanggan
+                </Badge>
                 <h2 className="text-3xl font-bold text-amber-900 mb-4">
                   Suasana Pelanggan
                 </h2>
@@ -275,6 +315,19 @@ export default function GalleryPage() {
 
             <TabsContent value="events">
               <div className="mb-8">
+                <Badge
+                  className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
+                  icon={
+                    <Image
+                      src="/assets/random/logo.png"
+                      alt="Logo"
+                      width={13.7}
+                      height={13.7}
+                    />
+                  }
+                >
+                  Event
+                </Badge>
                 <h2 className="text-3xl font-bold text-amber-900 mb-4">
                   Dokumentasi Event
                 </h2>
