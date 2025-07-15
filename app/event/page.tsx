@@ -1,4 +1,5 @@
-import { Badge } from "@/components/ui/badge";
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -8,112 +9,84 @@ import {
   Instagram,
   MapPin,
   Twitter,
-  Users,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const upcomingEvents = [
+const pastEvents = [
   {
     id: 1,
     title: "Coffee Cupping Workshop",
-    date: "25 Januari 2024",
+    date: "15 Desember 2023",
     time: "14:00 - 16:00",
     location: "Coffee Shop Main Area",
-    capacity: "15 orang",
-    price: "Rp 150.000",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/assets/event/event.png",
     description:
-      "Pelajari cara mencicipi dan menilai kopi seperti seorang profesional. Workshop ini akan dipandu oleh head barista kami yang berpengalaman.",
-    status: "available",
+      "Workshop mencicipi dan menilai kopi yang dipandu oleh head barista kami. Peserta belajar teknik cupping profesional dan mengenal berbagai profil rasa kopi.",
+    highlights: [
+      "Teknik cupping profesional",
+      "Analisa profil rasa",
+      "Sertifikat peserta",
+    ],
   },
   {
     id: 2,
     title: "Latte Art Competition",
-    date: "10 Februari 2024",
+    date: "28 Desember 2023",
     time: "10:00 - 15:00",
     location: "Coffee Shop",
-    capacity: "20 peserta",
-    price: "Rp 100.000",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/assets/event/event2.png",
     description:
-      "Kompetisi latte art terbuka untuk semua level dengan hadiah menarik untuk para pemenang. Daftar sekarang!",
-    status: "available",
+      "Kompetisi latte art yang diikuti oleh barista dari berbagai coffee shop. Acara ini menampilkan kreativitas dan skill para peserta.",
+    highlights: [
+      "3 kategori kompetisi",
+      "Hadiah total 5 juta",
+      "Live demo dari juara",
+    ],
   },
   {
     id: 3,
     title: "Acoustic Night",
-    date: "17 Februari 2024",
+    date: "5 Januari 2024",
     time: "19:00 - 22:00",
     location: "Coffee Shop",
-    capacity: "50 orang",
-    price: "Free",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/assets/gallery/event/event3.jpg",
     description:
-      "Nikmati malam yang hangat dengan musik akustik dari musisi lokal sambil menyeruput kopi favorit Anda.",
-    status: "available",
+      "Malam musik akustik dengan musisi lokal. Suasana hangat dengan alunan musik dan aroma kopi yang menenangkan.",
+    highlights: ["3 musisi lokal", "Repertoar jazz & folk", "Suasana intimate"],
   },
   {
     id: 4,
     title: "Coffee & Book Club",
-    date: "24 Februari 2024",
+    date: "12 Januari 2024",
     time: "15:00 - 17:00",
     location: "Reading Corner",
-    capacity: "12 orang",
-    price: "Rp 75.000",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/assets/gallery/event/event4.jpg",
     description:
-      "Diskusi buku bulanan dengan tema 'Coffee Culture Around the World' sambil menikmati kopi spesial.",
-    status: "limited",
+      "Diskusi buku dengan tema 'Coffee Culture Around the World' sambil menikmati kopi spesial dari berbagai negara.",
+    highlights: ["Buku tema kopi", "Degustasi kopi dunia", "Diskusi mendalam"],
   },
   {
     id: 5,
-    title: "Barista Training Basic",
-    date: "3 Maret 2024",
+    title: "Barista Training Workshop",
+    date: "20 Januari 2024",
     time: "09:00 - 15:00",
     location: "Coffee Shop",
-    capacity: "8 orang",
-    price: "Rp 500.000",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/assets/gallery/barista/barista.jpg",
     description:
-      "Pelatihan dasar menjadi barista profesional. Termasuk sertifikat dan starter kit.",
-    status: "soldout",
+      "Pelatihan intensif teknik dasar barista dari grinding hingga latte art. Peserta mendapat pengalaman hands-on dengan equipment profesional.",
+    highlights: ["Teknik brewing", "Latte art basic", "Equipment training"],
   },
   {
     id: 6,
-    title: "Coffee Farm Visit",
-    date: "10 Maret 2024",
-    time: "06:00 - 18:00",
-    location: "Kebun Kopi Malang",
-    capacity: "25 orang",
-    price: "Rp 350.000",
-    image: "/placeholder.svg?height=300&width=400",
-    description:
-      "Kunjungan ke kebun kopi untuk melihat langsung proses dari biji hingga cangkir. Termasuk transportasi dan makan siang.",
-    status: "available",
-  },
-];
-
-const pastEvents = [
-  {
     title: "Grand Opening Celebration",
-    date: "15 Desember 2023",
-    image: "/placeholder.svg?height=200&width=300",
+    date: "1 Desember 2023",
+    time: "10:00 - 22:00",
+    location: "Coffee Shop",
+    image: "/assets/gallery/event/event.jpg",
     description:
-      "Perayaan grand opening dengan berbagai doorprize dan diskon spesial.",
-  },
-  {
-    title: "Christmas Coffee Special",
-    date: "24 Desember 2023",
-    image: "/placeholder.svg?height=200&width=300",
-    description:
-      "Menu kopi spesial Natal dengan cita rasa unik dan dekorasi meriah.",
-  },
-  {
-    title: "New Year Coffee Toast",
-    date: "31 Desember 2023",
-    image: "/placeholder.svg?height=200&width=300",
-    description: "Menyambut tahun baru dengan coffee toast bersama komunitas.",
+      "Perayaan grand opening dengan berbagai aktivitas menarik, live music, dan promo spesial untuk pengunjung.",
+    highlights: ["Live music", "Promo opening", "Meet & greet"],
   },
 ];
 
@@ -138,33 +111,33 @@ export default function EventPage() {
               Event & Kegiatan
             </h1>
             <p className="text-lg md:text-xl text-amber-100">
-              Bergabunglah dengan komunitas kami dalam berbagai kegiatan menarik
-              dan edukatif
+              Dokumentasi berbagai kegiatan menarik yang pernah kami
+              selenggarakan
             </p>
           </div>
         </div>
       </section>
 
-      {/* Upcoming Events Section */}
+      {/* Events Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-amber-900 mb-4">
-              Event Mendatang
+              Kegiatan Kami
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Jangan lewatkan kesempatan untuk mengikuti berbagai kegiatan
-              menarik kami
+              Berbagai event dan workshop yang telah kami selenggarakan untuk
+              membangun dan mengedukasi komunitas kopi
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {upcomingEvents.map((event) => (
+            {pastEvents.map((event) => (
               <Card
                 key={event.id}
                 className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md"
               >
-                <CardContent className="p-0">
+                <CardContent className="p-0 h-full flex flex-col">
                   <div className="relative overflow-hidden rounded-t-lg">
                     <Image
                       src={event.image || "/placeholder.svg"}
@@ -173,25 +146,8 @@ export default function EventPage() {
                       height={300}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute top-4 right-4">
-                      {event.status === "available" && (
-                        <Badge className="bg-green-600 text-white">
-                          Tersedia
-                        </Badge>
-                      )}
-                      {event.status === "limited" && (
-                        <Badge className="bg-yellow-600 text-white">
-                          Terbatas
-                        </Badge>
-                      )}
-                      {event.status === "soldout" && (
-                        <Badge className="bg-red-600 text-white">
-                          Sold Out
-                        </Badge>
-                      )}
-                    </div>
                   </div>
-                  <div className="p-6">
+                  <div className="p-6 flex-grow flex flex-col">
                     <h3 className="text-xl font-bold text-amber-900 mb-3">
                       {event.title}
                     </h3>
@@ -209,31 +165,32 @@ export default function EventPage() {
                         <MapPin className="w-4 h-4" />
                         <span className="text-sm">{event.location}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-gray-600">
-                        <Users className="w-4 h-4" />
-                        <span className="text-sm">{event.capacity}</span>
-                      </div>
                     </div>
 
-                    <p className="text-gray-600 mb-4 text-sm">
+                    <p className="text-gray-600 mb-4 text-sm flex-grow">
                       {event.description}
                     </p>
 
-                    <div className="flex justify-between items-center">
-                      <span className="text-2xl font-bold text-amber-700">
-                        {event.price}
-                      </span>
-                      <Button
-                        className={`${
-                          event.status === "soldout"
-                            ? "bg-gray-400 cursor-not-allowed"
-                            : "bg-amber-600 hover:bg-amber-700"
-                        }`}
-                        disabled={event.status === "soldout"}
-                      >
-                        {event.status === "soldout" ? "Sold Out" : "Daftar"}
-                      </Button>
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-amber-900 mb-2">
+                        Highlights:
+                      </h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {event.highlights.map((highlight, index) => (
+                          <li key={index} className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 bg-amber-600 rounded-full"></span>
+                            {highlight}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
+
+                    <Button
+                      onClick={() => alert(`Detail event: ${event.title}`)}
+                      className="w-full bg-amber-600 hover:bg-amber-700 mt-auto"
+                    >
+                      Lihat Detail
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -242,53 +199,30 @@ export default function EventPage() {
         </div>
       </section>
 
-      {/* Past Events Section */}
+      {/* Gallery Link Section */}
       <section className="py-20 bg-amber-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-amber-900 mb-4">
-              Event Sebelumnya
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold text-amber-900 mb-6">
+              Lihat Lebih Banyak
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Lihat dokumentasi kegiatan-kegiatan menarik yang telah kami
-              selenggarakan
+            <p className="text-xl text-gray-600 mb-8">
+              Jelajahi galeri foto kami untuk melihat dokumentasi lengkap dari
+              berbagai kegiatan dan suasana coffee shop
             </p>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {pastEvents.map((event, index) => (
-              <Card
-                key={index}
-                className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md"
-              >
-                <CardContent className="p-0">
-                  <div className="relative overflow-hidden rounded-t-lg">
-                    <Image
-                      src={event.image || "/placeholder.svg"}
-                      alt={event.title}
-                      width={300}
-                      height={200}
-                      className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 text-amber-600 mb-2">
-                      <Calendar className="w-4 h-4" />
-                      <span className="text-sm font-medium">{event.date}</span>
-                    </div>
-                    <h3 className="text-lg font-bold text-amber-900 mb-3">
-                      {event.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm">{event.description}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+            <Button
+              asChild
+              size="lg"
+              className="bg-amber-600 hover:bg-amber-700 mb-8"
+            >
+              <Link href="/gallery">Lihat Galeri Lengkap</Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Social Media CTA Section */}
+      {/* Social Media Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
@@ -296,8 +230,8 @@ export default function EventPage() {
               Tetap Terhubung
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              Ikuti media sosial kami untuk mendapatkan update terbaru tentang
-              event dan promo menarik
+              Ikuti media sosial kami untuk melihat update terbaru tentang
+              kegiatan dan suasana harian coffee shop
             </p>
 
             <div className="flex justify-center gap-6 mb-8">
@@ -330,8 +264,8 @@ export default function EventPage() {
             </div>
 
             <p className="text-gray-600">
-              Atau kunjungi langsung coffee shop kami untuk informasi lebih
-              lanjut tentang event mendatang
+              Atau kunjungi langsung coffee shop kami untuk merasakan suasana
+              hangat dan kopi berkualitas
             </p>
           </div>
         </div>

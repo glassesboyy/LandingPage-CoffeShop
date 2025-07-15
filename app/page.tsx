@@ -184,7 +184,7 @@ export default function HomePage() {
                 key={index}
                 className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md"
               >
-                <CardContent className="p-0">
+                <CardContent className="p-0 h-full flex flex-col">
                   <div className="relative overflow-hidden rounded-t-lg">
                     <Image
                       src={item.image || "/placeholder.svg"}
@@ -197,11 +197,11 @@ export default function HomePage() {
                       Signature
                     </Badge>
                   </div>
-                  <div className="p-6">
+                  <div className="p-6 flex-grow flex flex-col">
                     <h3 className="text-xl font-bold text-amber-900 mb-2">
                       {item.name}
                     </h3>
-                    <p className="text-gray-600 mb-4 text-sm">
+                    <p className="text-gray-600 mb-4 text-sm flex-grow">
                       {item.description}
                     </p>
                     <div className="flex justify-between items-center">
@@ -239,10 +239,11 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-amber-900 mb-4">
-              Event Mendatang
+              Kegiatan Terbaru
             </h2>
             <p className="text-xl text-gray-600">
-              Bergabunglah dengan komunitas kami dalam berbagai kegiatan menarik
+              Lihat dokumentasi kegiatan-kegiatan menarik yang telah kami
+              selenggarakan
             </p>
           </div>
 
@@ -250,26 +251,24 @@ export default function HomePage() {
             {[
               {
                 title: "Coffee Cupping Workshop",
-                date: "25 Januari 2024",
-                time: "14:00 - 16:00",
+                date: "15 Desember 2023",
                 image: "/assets/event/event.png",
                 description:
-                  "Pelajari cara mencicipi dan menilai kopi seperti seorang profesional",
+                  "Workshop mencicipi dan menilai kopi yang dipandu oleh head barista kami dengan teknik profesional",
               },
               {
                 title: "Latte Art Competition",
-                date: "10 Februari 2024",
-                time: "10:00 - 15:00",
+                date: "28 Desember 2023",
                 image: "/assets/event/event2.png",
                 description:
-                  "Kompetisi latte art terbuka untuk semua level dengan hadiah menarik",
+                  "Kompetisi latte art dengan peserta dari berbagai coffee shop yang menampilkan kreativitas tinggi",
               },
             ].map((event, index) => (
               <Card
                 key={index}
                 className="group hover:shadow-xl transition-all duration-300"
               >
-                <CardContent className="p-0">
+                <CardContent className="p-0 h-full flex flex-col">
                   <div className="relative overflow-hidden rounded-t-lg">
                     <Image
                       src={event.image || "/placeholder.svg"}
@@ -279,19 +278,19 @@ export default function HomePage() {
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <div className="p-6">
+                  <div className="p-6 flex-grow flex flex-col">
                     <div className="flex items-center gap-2 text-amber-600 mb-2">
                       <Calendar className="w-4 h-4" />
-                      <span className="text-sm font-medium">
-                        {event.date} • {event.time}
-                      </span>
+                      <span className="text-sm font-medium">{event.date}</span>
                     </div>
                     <h3 className="text-xl font-bold text-amber-900 mb-3">
                       {event.title}
                     </h3>
-                    <p className="text-gray-600 mb-4">{event.description}</p>
+                    <p className="text-gray-600 mb-4 flex-grow">
+                      {event.description}
+                    </p>
                     <Button className="w-full bg-amber-600 hover:bg-amber-700">
-                      Lihat Detail Event
+                      Lihat Detail
                     </Button>
                   </div>
                 </CardContent>
@@ -306,7 +305,7 @@ export default function HomePage() {
               variant="outline"
               className="border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white bg-transparent"
             >
-              <Link href="/event">Lihat Semua Event</Link>
+              <Link href="/event">Lihat Semua Kegiatan</Link>
             </Button>
           </div>
         </div>
@@ -344,8 +343,8 @@ export default function HomePage() {
                 avatar: "/placeholder-user.jpg",
               },
             ].map((testimonial, index) => (
-              <Card key={index} className="p-6 border-0 shadow-lg">
-                <CardContent className="p-0">
+              <Card key={index} className="p-6 border-0 shadow-lg h-full">
+                <CardContent className="p-0 h-full flex flex-col">
                   <div className="flex items-center gap-4 mb-4">
                     <Image
                       src={testimonial.avatar || "/placeholder.svg"}
@@ -371,7 +370,7 @@ export default function HomePage() {
                       />
                     ))}
                   </div>
-                  <p className="text-gray-700 italic">
+                  <p className="text-gray-700 italic flex-grow">
                     "{testimonial.comment}"
                   </p>
                 </CardContent>

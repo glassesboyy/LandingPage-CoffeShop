@@ -301,7 +301,7 @@ function MenuCard({ item }: { item: any }) {
   return (
     <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md">
       <CardContent className="p-0">
-        <div className="relative overflow-hidden rounded-t-lg">
+        <div className="relative overflow-hidden">
           <Image
             src={item.image || "/placeholder.svg"}
             alt={item.name}
@@ -316,10 +316,12 @@ function MenuCard({ item }: { item: any }) {
           )}
         </div>
         <div className="p-6">
-          <h3 className="text-xl font-bold text-amber-900 mb-2">{item.name}</h3>
+          <h3 className="text-3xl font-extrabold text-amber-900 mb-2">
+            {item.name}
+          </h3>
           <p className="text-gray-600 mb-4 text-sm">{item.description}</p>
           <div className="flex justify-between items-center">
-            <span className="text-2xl font-bold text-amber-700">
+            <span className="text-2xl font-semibold text-amber-700">
               {item.price}
             </span>
             <Button size="sm" className="bg-amber-600 hover:bg-amber-700">
