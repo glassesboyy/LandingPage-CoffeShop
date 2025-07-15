@@ -7,6 +7,7 @@ import { Calendar, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { pastEvents } from "./data/data-event"; // import data event
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -338,22 +339,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-            {[
-              {
-                title: "Coffee Cupping Workshop",
-                date: "15 Desember 2023",
-                image: "/assets/event/event.png",
-                description:
-                  "Workshop mencicipi dan menilai kopi yang dipandu oleh head barista kami dengan teknik profesional",
-              },
-              {
-                title: "Latte Art Competition",
-                date: "28 Desember 2023",
-                image: "/assets/event/event2.png",
-                description:
-                  "Kompetisi latte art dengan peserta dari berbagai coffee shop yang menampilkan kreativitas tinggi",
-              },
-            ].map((event, index) => (
+            {pastEvents.slice(0, 2).map((event, index) => (
               <Card
                 key={index}
                 className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg"
