@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { pastEvents } from "./data/data-event"; // import data event
+import { testimonials } from "./data/data-testimoni";
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -414,24 +415,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-            {[
-              {
-                name: "Sarah Wijaya",
-                role: "Coffee Enthusiast",
-                comment:
-                  "Tempat favorit saya untuk bekerja dan menikmati kopi berkualitas. Suasananya sangat nyaman dan barista-nya ramah sekali!",
-                rating: 5,
-                avatar: "/placeholder-user.jpg",
-              },
-              {
-                name: "Ahmad Rizki",
-                role: "Freelancer",
-                comment:
-                  "Cold brew mereka adalah yang terbaik di kota! Selalu jadi pilihan utama saat butuh caffeine boost untuk kerja.",
-                rating: 5,
-                avatar: "/placeholder-user.jpg",
-              },
-            ].map((testimonial, index) => (
+            {testimonials.slice(0, 2).map((testimonial, index) => (
               <Card
                 key={index}
                 className="p-8 border-0 shadow-lg h-full group transition-all duration-300 hover:shadow-2xl"
