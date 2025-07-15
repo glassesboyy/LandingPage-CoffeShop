@@ -1,13 +1,5 @@
-import {
-  Facebook,
-  Instagram,
-  Mail,
-  MapPin,
-  MessageCircle,
-  Phone,
-  Twitter,
-  Youtube,
-} from "lucide-react";
+import { socialMedias } from "@/app/data/data-social-media"; // import social media
+import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -33,36 +25,17 @@ export default function Footer() {
               pelayanan ramah untuk setiap pelanggan.
             </p>
             <div className="flex space-x-4">
-              <Link
-                href="#"
-                className="text-amber-200 hover:text-white transition-colors"
-              >
-                <Instagram className="h-5 w-5" />
-              </Link>
-              <Link
-                href="#"
-                className="text-amber-200 hover:text-white transition-colors"
-              >
-                <Facebook className="h-5 w-5" />
-              </Link>
-              <Link
-                href="#"
-                className="text-amber-200 hover:text-white transition-colors"
-              >
-                <Twitter className="h-5 w-5" />
-              </Link>
-              <Link
-                href="#"
-                className="text-amber-200 hover:text-white transition-colors"
-              >
-                <Youtube className="h-5 w-5" />
-              </Link>
-              <Link
-                href="#"
-                className="text-amber-200 hover:text-white transition-colors"
-              >
-                <MessageCircle className="h-5 w-5" />
-              </Link>
+              {/* ...replace hardcoded icons with mapped data... */}
+              {socialMedias.map((media) => (
+                <Link
+                  key={media.name}
+                  href={media.url}
+                  className="text-amber-200 hover:text-white transition-colors"
+                  aria-label={media.name}
+                >
+                  <media.icon className="h-5 w-5" />
+                </Link>
+              ))}
             </div>
           </div>
 

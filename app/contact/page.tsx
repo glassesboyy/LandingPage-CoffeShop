@@ -7,19 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Clock,
-  Facebook,
-  Instagram,
-  Mail,
-  MapPin,
-  MessageCircle,
-  Phone,
-  Twitter, // ganti X menjadi Twitter
-  Youtube,
-} from "lucide-react";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { socialMedias } from "../data/data-social-media"; // import social media
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -180,35 +171,6 @@ export default function ContactPage() {
                   </CardContent>
                 </Card>
               </div>
-
-              {/* Social Media */}
-              <div className="mt-8">
-                <h3 className="text-2xl font-bold text-amber-900 mb-4">
-                  Ikuti Kami di Berbagai Platfrom
-                </h3>
-                <div className="flex gap-2 flex-wrap">
-                  <Button size="sm" className="bg-pink-600 hover:bg-pink-700">
-                    <Instagram className="w-4 h-4 mr-2" />
-                    Instagram
-                  </Button>
-                  <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                    <Facebook className="w-4 h-4 mr-2" />
-                    Facebook
-                  </Button>
-                  <Button size="sm" className="bg-black hover:bg-neutral-800">
-                    <Twitter className="w-4 h-4 mr-2" />
-                    Twitter
-                  </Button>
-                  <Button size="sm" className="bg-red-600 hover:bg-red-700">
-                    <Youtube className="w-4 h-4 mr-2" />
-                    YouTube
-                  </Button>
-                  <Button size="sm" className="bg-green-500 hover:bg-green-600">
-                    <MessageCircle className="w-4 h-4 mr-2" />
-                    WhatsApp
-                  </Button>
-                </div>
-              </div>
             </div>
 
             {/* Contact Form */}
@@ -308,8 +270,51 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map Section */}
+      {/* CTA Section */}
       <section className="py-20 bg-amber-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto">
+            <Badge
+              className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
+              icon={
+                <Image
+                  src="/assets/random/logo.png"
+                  alt="Logo"
+                  width={13.7}
+                  height={13.7}
+                />
+              }
+            >
+              Social Media
+            </Badge>
+            <h2 className="text-4xl font-bold text-amber-900 mb-6">
+              Terhubung dengan Kami di Media Sosial
+            </h2>
+            <p className="text-xl text-gray-600 mb-8">
+              Bagikan pengalaman Anda menikmati kopi di tempat kami melalui
+              media sosial dan tag akun kami! Kami senang melihat cerita dan
+              momen spesial Anda bersama kami.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {socialMedias.map((media) => (
+                <a
+                  key={media.id}
+                  href={media.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-2 text-white px-8 py-3 rounded-md font-medium transition-colors ${media.colorClass}`}
+                >
+                  <media.icon className="w-5 h-5" />
+                  {media.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="py-20 ">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <Badge

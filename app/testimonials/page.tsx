@@ -1,7 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Quote, Star } from "lucide-react";
 import Image from "next/image";
+import { socialMedias } from "../data/data-social-media";
 import { testimonials } from "../data/data-testimoni";
+import { Badge } from "@/components/ui/badge";
 
 export default function TestimonialsPage() {
   return (
@@ -92,20 +94,40 @@ export default function TestimonialsPage() {
       <section className="py-20 bg-amber-50">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
+            <Badge
+              className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
+              icon={
+                <Image
+                  src="/assets/random/logo.png"
+                  alt="Logo"
+                  width={13.7}
+                  height={13.7}
+                />
+              }
+            >
+              Sosial Media
+            </Badge>
             <h2 className="text-4xl font-bold text-amber-900 mb-6">
-              Bagikan Pengalaman Anda
+              Terhubung dengan Kami di Media Sosial
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              Sudah pernah berkunjung ke coffee shop kami? Kami ingin mendengar
-              cerita Anda!
+              Bagikan pengalaman Anda menikmati kopi di tempat kami melalui
+              media sosial dan tag akun kami! Kami senang melihat cerita dan
+              momen spesial Anda bersama kami.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md font-medium transition-colors">
-                Tulis Review
-              </button>
-              <button className="border border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white px-8 py-3 rounded-md font-medium transition-colors">
-                Kunjungi Kami
-              </button>
+              {socialMedias.map((media) => (
+                <a
+                  key={media.id}
+                  href={media.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-2 text-white px-8 py-3 rounded-md font-medium transition-colors ${media.colorClass}`}
+                >
+                  <media.icon className="w-5 h-5" />
+                  {media.name}
+                </a>
+              ))}
             </div>
           </div>
         </div>
