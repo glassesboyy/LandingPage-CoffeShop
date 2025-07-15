@@ -36,6 +36,19 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div>
+              <Badge
+                className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
+                icon={
+                  <Image
+                    src="/assets/random/logo.png"
+                    alt="Logo"
+                    width={13.7}
+                    height={13.7}
+                  />
+                }
+              >
+                Tentang Kami
+              </Badge>
               <h2 className="text-4xl font-bold text-amber-900 mb-6">
                 Cerita Kami
               </h2>
@@ -70,41 +83,45 @@ export default function AboutPage() {
 
           {/* Vision & Mission */}
           <div className="grid md:grid-cols-2 gap-8 mb-20">
-            <Card className="p-8 border-0 shadow-lg bg-amber-50">
-              <CardContent className="p-0">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="p-2 bg-amber-600">
-                    <Heart className="w-6 h-6 text-white" />
+            <div>
+              <Card className="p-8 border-0 shadow-lg bg-amber-50">
+                <CardContent className="p-0">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-2 bg-amber-600 rounded-t-2xl ">
+                      <Heart className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="text-3xl font-bold text-amber-900">
+                      Visi Kami
+                    </h3>
                   </div>
-                  <h3 className="text-3xl font-bold text-amber-900">
-                    Visi Kami
-                  </h3>
-                </div>
-                <p className="text-gray-700 leading-relaxed">
-                  Menjadi coffee shop terdepan yang tidak hanya menyajikan kopi
-                  berkualitas tinggi, tetapi juga menciptakan komunitas hangat
-                  di mana setiap orang merasa diterima dan terinspirasi.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="p-8 border-0 shadow-lg bg-amber-50">
-              <CardContent className="p-0">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="p-2 bg-amber-600">
-                    <Coffee className="w-6 h-6 text-white" />
+                  <p className="text-gray-700 leading-relaxed">
+                    Menjadi coffee shop terdepan yang tidak hanya menyajikan
+                    kopi berkualitas tinggi, tetapi juga menciptakan komunitas
+                    hangat di mana setiap orang merasa diterima dan
+                    terinspirasi.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+            <div>
+              <Card className="p-8 border-0 shadow-lg bg-amber-50">
+                <CardContent className="p-0">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-2 bg-amber-600 rounded-t-2xl ">
+                      <Coffee className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="text-3xl font-bold text-amber-900">
+                      Misi Kami
+                    </h3>
                   </div>
-                  <h3 className="text-3xl font-bold text-amber-900">
-                    Misi Kami
-                  </h3>
-                </div>
-                <p className="text-gray-700 leading-relaxed">
-                  Menghadirkan pengalaman kopi terbaik melalui biji kopi
-                  berkualitas, pelayanan yang ramah, dan suasana yang nyaman
-                  untuk bekerja, bersantai, dan bersosialisasi.
-                </p>
-              </CardContent>
-            </Card>
+                  <p className="text-gray-700 leading-relaxed">
+                    Menghadirkan pengalaman kopi terbaik melalui biji kopi
+                    berkualitas, pelayanan yang ramah, dan suasana yang nyaman
+                    untuk bekerja, bersantai, dan bersosialisasi.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
@@ -113,6 +130,19 @@ export default function AboutPage() {
       <section className="py-20 bg-cream-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
+            <Badge
+              className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
+              icon={
+                <Image
+                  src="/assets/random/logo.png"
+                  alt="Logo"
+                  width={13.7}
+                  height={13.7}
+                />
+              }
+            >
+              Tim Kami
+            </Badge>
             <h2 className="text-4xl font-bold text-amber-900 mb-4">Tim Kami</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Bertemu dengan orang-orang hebat di balik setiap cangkir kopi yang
@@ -186,6 +216,19 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
+            <Badge
+              className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
+              icon={
+                <Image
+                  src="/assets/random/logo.png"
+                  alt="Logo"
+                  width={13.7}
+                  height={13.7}
+                />
+              }
+            >
+              Keunikan
+            </Badge>
             <h2 className="text-4xl font-bold text-amber-900 mb-4">
               Keunikan Kami
             </h2>

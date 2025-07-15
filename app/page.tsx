@@ -59,6 +59,17 @@ export default function HomePage() {
         {/* Static Content */}
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="text-center text-white max-w-4xl mx-auto px-4">
+            {/* Logo di atas judul */}
+            <div className="flex justify-center -mb-4">
+              <Image
+                src="/assets/random/logo.png"
+                alt="Logo Coffee Shop"
+                width={150}
+                height={150}
+                className="mx-auto drop-shadow-lg"
+                priority
+              />
+            </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               {heroContent.title}
               <span className="block text-amber-300">
@@ -110,6 +121,19 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
+              <Badge
+                className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
+                icon={
+                  <Image
+                    src="/assets/random/logo.png"
+                    alt="Logo"
+                    width={13.7}
+                    height={13.7}
+                  />
+                }
+              >
+                Tentang Kami
+              </Badge>
               <h2 className="text-5xl font-bold text-amber-900 mb-6">
                 Cerita Kami
               </h2>
@@ -211,6 +235,19 @@ export default function HomePage() {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
+            <Badge
+              className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
+              icon={
+                <Image
+                  src="/assets/random/logo.png"
+                  alt="Logo"
+                  width={13.7}
+                  height={13.7}
+                />
+              }
+            >
+              Menu Unggulan
+            </Badge>
             <h2 className="text-4xl font-bold text-amber-900 mb-4">
               Menu Signature Kami
             </h2>
@@ -308,6 +345,19 @@ export default function HomePage() {
       <section className="py-24 bg-amber-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
+            <Badge
+              className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
+              icon={
+                <Image
+                  src="/assets/random/logo.png"
+                  alt="Logo"
+                  width={13.7}
+                  height={13.7}
+                />
+              }
+            >
+              Event
+            </Badge>
             <h2 className="text-4xl font-bold text-amber-900 mb-4">
               Kegiatan Terbaru
             </h2>
@@ -385,6 +435,19 @@ export default function HomePage() {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
+            <Badge
+              className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
+              icon={
+                <Image
+                  src="/assets/random/logo.png"
+                  alt="Logo"
+                  width={13.7}
+                  height={13.7}
+                />
+              }
+            >
+              Testimoni
+            </Badge>
             <h2 className="text-4xl font-bold text-amber-900 mb-4">
               Kata Mereka
             </h2>
