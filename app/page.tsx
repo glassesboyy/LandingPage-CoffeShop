@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [hoveredImage, setHoveredImage] = useState<number | null>(null);
 
   const heroImages = [
     "/assets/random/hero.jpeg",
@@ -36,7 +37,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Fade Carousel */}
-      <section className="relative h-screen overflow-hidden">
+      <section className="relative h-screen overflow-hidden shadow-lg">
         {heroImages.map((image, index) => (
           <div
             key={index}
@@ -92,19 +93,22 @@ export default function HomePage() {
           {heroImages.map((_, index) => (
             <button
               key={index}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentSlide ? "bg-amber-400" : "bg-white/50"
+              className={`w-3 h-3 rounded-full transition-all duration-300 border border-amber-400 ${
+                index === currentSlide
+                  ? "bg-amber-400 scale-110 shadow"
+                  : "bg-white/60 hover:bg-amber-200"
               }`}
               onClick={() => setCurrentSlide(index)}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
       </section>
 
       {/* About Preview Section */}
-      <section className="py-20 bg-amber-50">
+      <section className="py-24 bg-amber-50">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-5xl font-bold text-amber-900 mb-6">
                 Cerita Kami
@@ -116,29 +120,95 @@ export default function HomePage() {
                 lokal dan barista berpengalaman, kami berkomitmen menghadirkan
                 pengalaman ngopi terbaik.
               </p>
-              <p className="text-lg text-gray-700 mb-8">
+              <p className="text-lg text-gray-700 mb-10">
                 Lebih dari sekadar coffee shop, kami adalah rumah kedua bagi
                 komunitas pecinta kopi yang menghargai kualitas dan kehangatan.
               </p>
-              <Button asChild className="bg-amber-700 hover:bg-amber-800">
+              <Button
+                asChild
+                className="bg-amber-700 hover:bg-amber-800 font-semibold px-7 py-3 transition-all"
+              >
                 <Link href="/about">Baca Selengkapnya</Link>
               </Button>
             </div>
-            <div className="relative">
-              <Image
-                src="/assets/random/hero2.jpeg"
-                alt="Coffee Shop Story"
-                width={600}
-                height={500}
-                className="rounded-lg shadow-lg"
-              />
+            <div className="relative w-full h-[400px] min-w-[320px]">
+              {/* Layered Images - 4 gambar */}
+              <div
+                className="absolute top-0 left-0 w-2/3 h-2/3 shadow-xl overflow-hidden hover:w-full hover:h-full transition-all duration-500"
+                style={{
+                  zIndex: hoveredImage === 0 ? 4 : 1,
+                  rotate: "4deg",
+                }}
+                onMouseEnter={() => setHoveredImage(0)}
+                onMouseLeave={() => setHoveredImage(null)}
+              >
+                <Image
+                  src="/assets/random/hero.jpeg"
+                  alt="Coffee Shop Story 1"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 300px"
+                  priority
+                />
+              </div>
+              <div
+                className="absolute top-0 right-0 w-2/5 h-2/5 shadow-xl overflow-hidden hover:w-full hover:h-full transition-all duration-500"
+                style={{
+                  zIndex: hoveredImage === 1 ? 4 : 2,
+                  rotate: "-2deg",
+                }}
+                onMouseEnter={() => setHoveredImage(1)}
+                onMouseLeave={() => setHoveredImage(null)}
+              >
+                <Image
+                  src="/assets/gallery/interior/interior.jpg"
+                  alt="Coffee Shop Story 2"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 300px"
+                />
+              </div>
+              <div
+                className="absolute bottom-0 left-0 w-2/5 h-2/5 shadow-xl overflow-hidden hover:w-full hover:h-full transition-all duration-500"
+                style={{
+                  zIndex: hoveredImage === 2 ? 4 : 3,
+                  rotate: "-2deg",
+                }}
+                onMouseEnter={() => setHoveredImage(2)}
+                onMouseLeave={() => setHoveredImage(null)}
+              >
+                <Image
+                  src="/assets/gallery/interior/interior2.jpg"
+                  alt="Coffee Shop Story 3"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 300px"
+                />
+              </div>
+              <div
+                className="absolute bottom-0 right-0 w-2/3 h-2/3 shadow-xl overflow-hidden hover:w-full hover:h-full transition-all duration-500"
+                style={{
+                  zIndex: hoveredImage === 3 ? 4 : 0,
+                  rotate: "4deg",
+                }}
+                onMouseEnter={() => setHoveredImage(3)}
+                onMouseLeave={() => setHoveredImage(null)}
+              >
+                <Image
+                  src="/assets/gallery/interior/interior3.jpg"
+                  alt="Coffee Shop Story 4"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 300px"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Menu Unggulan Section */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-amber-900 mb-4">
@@ -150,7 +220,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
             {[
               {
                 name: "Signature Latte",
@@ -182,10 +252,10 @@ export default function HomePage() {
             ].map((item, index) => (
               <Card
                 key={index}
-                className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md"
+                className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-md"
               >
                 <CardContent className="p-0 h-full flex flex-col">
-                  <div className="relative overflow-hidden rounded-t-lg">
+                  <div className="relative overflow-hidden">
                     <Image
                       src={item.image || "/placeholder.svg"}
                       alt={item.name}
@@ -193,7 +263,7 @@ export default function HomePage() {
                       height={300}
                       className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <Badge className="absolute top-4 right-4 bg-amber-600 text-white">
+                    <Badge className="absolute top-4 right-4 bg-amber-600 text-white px-3 py-1 shadow">
                       Signature
                     </Badge>
                   </div>
@@ -210,7 +280,7 @@ export default function HomePage() {
                       </span>
                       <Button
                         size="sm"
-                        className="bg-amber-600 hover:bg-amber-700"
+                        className="bg-amber-600 hover:bg-amber-700 font-semibold transition-all"
                       >
                         Lihat Detail
                       </Button>
@@ -221,12 +291,12 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-14">
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white bg-transparent"
+              className="border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white bg-transparent font-semibold px-8 py-3 transition-all"
             >
               <Link href="/menu">Lihat Menu Lengkap</Link>
             </Button>
@@ -235,7 +305,7 @@ export default function HomePage() {
       </section>
 
       {/* Event Terkini Section */}
-      <section className="py-20 bg-amber-50">
+      <section className="py-24 bg-amber-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-amber-900 mb-4">
@@ -247,7 +317,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
             {[
               {
                 title: "Coffee Cupping Workshop",
@@ -266,10 +336,10 @@ export default function HomePage() {
             ].map((event, index) => (
               <Card
                 key={index}
-                className="group hover:shadow-xl transition-all duration-300"
+                className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg"
               >
                 <CardContent className="p-0 h-full flex flex-col">
-                  <div className="relative overflow-hidden rounded-t-lg">
+                  <div className="relative overflow-hidden">
                     <Image
                       src={event.image || "/placeholder.svg"}
                       alt={event.title}
@@ -289,7 +359,7 @@ export default function HomePage() {
                     <p className="text-gray-600 mb-4 flex-grow">
                       {event.description}
                     </p>
-                    <Button className="w-full bg-amber-600 hover:bg-amber-700">
+                    <Button className="w-full bg-amber-600 hover:bg-amber-700 font-semibold transition-all">
                       Lihat Detail
                     </Button>
                   </div>
@@ -298,12 +368,12 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-14">
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white bg-transparent"
+              className="border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white bg-transparent font-semibold px-8 py-3 transition-all"
             >
               <Link href="/event">Lihat Semua Kegiatan</Link>
             </Button>
@@ -312,7 +382,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimoni Section */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-amber-900 mb-4">
@@ -324,7 +394,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
             {[
               {
                 name: "Sarah Wijaya",
@@ -343,18 +413,21 @@ export default function HomePage() {
                 avatar: "/placeholder-user.jpg",
               },
             ].map((testimonial, index) => (
-              <Card key={index} className="p-6 border-0 shadow-lg h-full">
+              <Card
+                key={index}
+                className="p-8 border-0 shadow-lg h-full group transition-all duration-300 hover:shadow-2xl"
+              >
                 <CardContent className="p-0 h-full flex flex-col">
-                  <div className="flex items-center gap-4 mb-4">
+                  <div className="flex items-center gap-5 mb-5">
                     <Image
                       src={testimonial.avatar || "/placeholder.svg"}
                       alt={testimonial.name}
-                      width={60}
-                      height={60}
-                      className="rounded-full"
+                      width={72}
+                      height={72}
+                      className="border-4 border-amber-100 shadow"
                     />
                     <div>
-                      <h4 className="font-bold text-amber-900">
+                      <h4 className="font-bold text-amber-900 text-lg">
                         {testimonial.name}
                       </h4>
                       <p className="text-sm text-gray-600">
@@ -370,7 +443,7 @@ export default function HomePage() {
                       />
                     ))}
                   </div>
-                  <p className="text-gray-700 italic flex-grow">
+                  <p className="text-gray-700 italic flex-grow text-base">
                     &quot;{testimonial.comment}&quot;
                   </p>
                 </CardContent>
@@ -378,12 +451,12 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-14">
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white bg-transparent"
+              className="border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white bg-transparent font-semibold px-8 py-3 transition-all"
             >
               <Link href="/testimonials">Lihat Semua Testimoni</Link>
             </Button>
