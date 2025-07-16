@@ -1,40 +1,12 @@
-"use client";
-
-import type React from "react";
-
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
-import { socialMedias } from "../data/data-social-media"; // import social media
+import { socialMedias } from "../data/data-social-media";
+import ContactForm from "./_components/contact-form";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission (dummy)
-    alert("Terima kasih! Pesan Anda telah dikirim.");
-    setFormData({ name: "", email: "", message: "" });
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -89,7 +61,7 @@ export default function ContactPage() {
                 berikut untuk pertanyaan, reservasi, atau kerjasama.
               </p>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <Card className="p-6 border-0 shadow-lg">
                   <CardContent className="p-0">
                     <div className="flex items-start gap-4">
@@ -97,10 +69,10 @@ export default function ContactPage() {
                         <MapPin className="w-6 h-6 text-amber-600" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold text-amber-900 mb-1">
+                        <h3 className="text-xl font-bold text-amber-900 mb-1">
                           Alamat
                         </h3>
-                        <p className="text-gray-700 text-sm">
+                        <p className="text-gray-700 text-xs">
                           Jl. Sudirman No. 123
                           <br />
                           Malang, Jawa Timur 65145
@@ -119,10 +91,10 @@ export default function ContactPage() {
                         <Phone className="w-6 h-6 text-amber-600" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold text-amber-900 mb-1">
+                        <h3 className="text-xl font-bold text-amber-900 mb-1">
                           Telepon
                         </h3>
-                        <p className="text-gray-700 text-sm">
+                        <p className="text-gray-700 text-xs">
                           +62 341 123 4567
                           <br />
                           WhatsApp: +62 812 3456 7890
@@ -139,10 +111,10 @@ export default function ContactPage() {
                         <Mail className="w-6 h-6 text-amber-600" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold text-amber-900 mb-1">
+                        <h3 className="text-xl font-bold text-amber-900 mb-1">
                           Email
                         </h3>
-                        <p className="text-gray-700 text-sm">
+                        <p className="text-gray-700 text-xs">
                           info@coffeeshop.com
                           <br />
                           order@coffeeshop.com
@@ -159,10 +131,10 @@ export default function ContactPage() {
                         <Clock className="w-6 h-6 text-amber-600" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold text-amber-900 mb-1">
+                        <h3 className="text-xl font-bold text-amber-900 mb-1">
                           Jam Operasional
                         </h3>
-                        <div className="text-gray-700 text-sm">
+                        <div className="text-gray-700 text-xs">
                           <p>Senin - Jumat: 07:00 - 22:00</p>
                           <p>Sabtu - Minggu: 08:00 - 23:00</p>
                         </div>
@@ -172,100 +144,8 @@ export default function ContactPage() {
                 </Card>
               </div>
             </div>
-
             {/* Contact Form */}
-            <div>
-              <Badge
-                className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
-                icon={
-                  <Image
-                    src="/assets/random/logo.png"
-                    alt="Logo"
-                    width={13.7}
-                    height={13.7}
-                  />
-                }
-              >
-                Pesan
-              </Badge>
-              <h2 className="text-3xl font-bold text-amber-900 mb-2">
-                Kirim Pesan
-              </h2>
-              <p className="text-base text-gray-600 mb-8">
-                Kirimkan pertanyaan, saran, atau pesan Anda melalui formulir
-                berikut. Kami akan membalas secepat mungkin.
-              </p>
-
-              <Card className="p-8 border-0 shadow-lg">
-                <CardContent className="p-0">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-sm font-medium text-gray-700 mb-2"
-                      >
-                        Nama Lengkap
-                      </label>
-                      <Input
-                        id="name"
-                        name="name"
-                        type="text"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Masukkan nama lengkap Anda"
-                        required
-                        className="w-full"
-                      />
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-gray-700 mb-2"
-                      >
-                        Email
-                      </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Masukkan alamat email Anda"
-                        required
-                        className="w-full"
-                      />
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="message"
-                        className="block text-sm font-medium text-gray-700 mb-2"
-                      >
-                        Pesan
-                      </label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        placeholder="Tulis pesan Anda di sini..."
-                        rows={6}
-                        required
-                        className="w-full"
-                      />
-                    </div>
-
-                    <Button
-                      type="submit"
-                      className="w-full bg-amber-600 hover:bg-amber-700 text-white py-3"
-                    >
-                      Kirim Pesan
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
+            <ContactForm />
           </div>
         </div>
       </section>
