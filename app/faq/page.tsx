@@ -1,13 +1,7 @@
-"use client";
 import { faqs } from "@/app/data/data-faq";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import FAQAccordion from "./_components/faq-accordion";
 
 // Bagi FAQ menjadi dua bagian
 const leftFaqs = faqs.slice(0, 5);
@@ -64,31 +58,9 @@ export default function FAQPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Kolom Kiri */}
-            <Accordion type="single" collapsible className="space-y-4">
-              {leftFaqs.map((faq) => (
-                <AccordionItem key={faq.id} value={`faq-${faq.id}`}>
-                  <AccordionTrigger className="text-md font-bold text-amber-900">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-gray-700 text-xs">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+            <FAQAccordion faqs={leftFaqs} />
             {/* Kolom Kanan */}
-            <Accordion type="single" collapsible className="space-y-4">
-              {rightFaqs.map((faq) => (
-                <AccordionItem key={faq.id} value={`faq-${faq.id}`}>
-                  <AccordionTrigger className="text-md font-bold text-amber-900">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-gray-700 text-xs">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+            <FAQAccordion faqs={rightFaqs} />
           </div>
         </div>
       </section>

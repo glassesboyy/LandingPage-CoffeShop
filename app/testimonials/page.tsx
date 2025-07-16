@@ -1,9 +1,9 @@
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Quote, Star } from "lucide-react";
 import Image from "next/image";
 import { socialMedias } from "../data/data-social-media";
 import { testimonials } from "../data/data-testimoni";
-import { Badge } from "@/components/ui/badge";
 
 export default function TestimonialsPage() {
   return (
