@@ -282,10 +282,13 @@ export default function HomePage() {
                         {item.price}
                       </span>
                       <Button
+                        asChild
                         size="sm"
                         className="bg-amber-600 hover:bg-amber-700 font-semibold transition-all"
                       >
-                        Lihat Detail
+                        <Link href={`/menu/${item.id}/detail`}>
+                          Lihat Detail
+                        </Link>
                       </Button>
                     </div>
                   </div>

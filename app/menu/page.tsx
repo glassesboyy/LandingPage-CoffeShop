@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { menuCategories } from "../data/data-kategory-menu";
 import { MenuItem, menuItems } from "../data/data-menu";
@@ -169,8 +170,12 @@ function MenuCard({ item }: { item: MenuItem }) {
             <span className="text-2xl font-semibold text-amber-700">
               {item.price}
             </span>
-            <Button size="sm" className="bg-amber-600 hover:bg-amber-700">
-              Lihat Detail
+            <Button
+              asChild
+              size="sm"
+              className="bg-amber-600 hover:bg-amber-700"
+            >
+              <Link href={`/menu/${item.id}/detail`}>Lihat Detail</Link>
             </Button>
           </div>
         </div>
