@@ -6,7 +6,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+
+// Bagi FAQ menjadi dua bagian
+const leftFaqs = faqs.slice(0, 5);
+const rightFaqs = faqs.slice(5, 10);
 
 export default function FAQPage() {
   return (
@@ -35,8 +40,21 @@ export default function FAQPage() {
 
       {/* FAQ List with Accordion */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 max-w-3xl">
+        <div className="container mx-auto px-4 max-w-5xl">
           <div className="mb-10 text-center">
+            <Badge
+              className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
+              icon={
+                <Image
+                  src="/assets/random/logo.png"
+                  alt="Logo"
+                  width={13.7}
+                  height={13.7}
+                />
+              }
+            >
+              FAQ
+            </Badge>
             <h2 className="text-3xl font-bold text-amber-900 mb-4">
               Temukan Jawabanmu
             </h2>
@@ -44,18 +62,34 @@ export default function FAQPage() {
               Berikut beberapa pertanyaan umum dari pelanggan kami.
             </p>
           </div>
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq) => (
-              <AccordionItem key={faq.id} value={`faq-${faq.id}`}>
-                <AccordionTrigger className="text-xl font-bold text-amber-900">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-700">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Kolom Kiri */}
+            <Accordion type="single" collapsible className="space-y-4">
+              {leftFaqs.map((faq) => (
+                <AccordionItem key={faq.id} value={`faq-${faq.id}`}>
+                  <AccordionTrigger className="text-md font-bold text-amber-900">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-700 text-xs">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+            {/* Kolom Kanan */}
+            <Accordion type="single" collapsible className="space-y-4">
+              {rightFaqs.map((faq) => (
+                <AccordionItem key={faq.id} value={`faq-${faq.id}`}>
+                  <AccordionTrigger className="text-md font-bold text-amber-900">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-700 text-xs">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
         </div>
       </section>
     </div>

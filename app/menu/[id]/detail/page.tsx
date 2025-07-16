@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 
 export default function MenuDetailPage() {
   const params = useParams();
@@ -15,18 +15,7 @@ export default function MenuDetailPage() {
   const menu = menuItems.find((item) => item.id === menuId);
 
   if (!menu) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold mb-2 text-amber-900">
-            Menu tidak ditemukan
-          </h2>
-          <p className="text-gray-600">
-            Menu dengan ID {params.id} tidak tersedia.
-          </p>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   const category = menuCategories.find((cat) => cat.id === menu.category);
