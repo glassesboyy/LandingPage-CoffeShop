@@ -88,13 +88,13 @@ export default function EventDetailPage() {
               )}
 
               {/* Gallery */}
-              {event.gallery?.length > 0 && (
+              {event.gallery && event.gallery.length > 0 && (
                 <div className="mb-6">
                   <h2 className="text-2xl font-semibold text-amber-900 mb-2">
                     Galeri Event
                   </h2>
                   <div className="grid grid-cols-2 gap-4">
-                    {event.gallery?.map((img, i) => (
+                    {event.gallery.map((img, i) => (
                       <div
                         key={i}
                         className="relative h-40 rounded-lg overflow-hidden shadow"
@@ -112,14 +112,14 @@ export default function EventDetailPage() {
               )}
 
               {/* Schedule */}
-              {event.schedule?.length > 0 && (
+              {event.schedule && event.schedule.length > 0 && (
                 <div className="mb-6">
                   <h2 className="text-2xl font-semibold text-amber-900 mb-2">
                     Jadwal Acara
                   </h2>
                   <table className="w-full text-sm border border-amber-200 rounded overflow-hidden">
                     <tbody>
-                      {event.schedule?.map((sch, i) => (
+                      {event.schedule.map((sch, i) => (
                         <tr key={i} className="border-b last:border-b-0">
                           <td className="py-1 px-4 text-gray-700 font-medium w-24">
                             {sch.time}
@@ -135,13 +135,13 @@ export default function EventDetailPage() {
               )}
 
               {/* Guests */}
-              {event.guests?.length > 0 && (
+              {event.guests && event.guests.length > 0 && (
                 <div className="mb-6">
                   <h2 className="text-2xl font-semibold text-amber-900 mb-2">
                     Tamu & Pengisi Acara
                   </h2>
                   <div className="flex flex-wrap gap-4">
-                    {event.guests?.map((guest, i) => (
+                    {event.guests.map((guest, i) => (
                       <div
                         key={i}
                         className="flex items-center gap-3 bg-amber-50 rounded-lg p-3 shadow"
@@ -170,7 +170,7 @@ export default function EventDetailPage() {
               )}
 
               {/* FAQ */}
-              {event.faq?.length > 0 && (
+              {event.faq && event.faq.length > 0 && (
                 <div className="mb-6">
                   <h2 className="text-2xl font-semibold text-amber-900 mb-2">
                     FAQ
