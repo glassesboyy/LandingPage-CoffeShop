@@ -10,15 +10,15 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center space-x-2 mb-4">
+            <div className="flex items-center space-x-1">
               {/* Logo image */}
               <Image
                 src="/assets/random/logo.png"
                 alt="Noir Coffee Logo"
-                width={32}
-                height={32}
+                width={50}
+                height={50}
               />
-              <span className="text-2xl font-serif font-bold">Noir Coffee</span>
+              <span className="text-3xl font-serif font-bold">Noir Coffee</span>
             </div>
             <p className="text-amber-100 mb-4">
               Menciptakan pengalaman kopi terbaik dengan suasana hangat dan
@@ -41,7 +41,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -88,7 +88,7 @@ export default function Footer() {
 
           {/* Menu Categories */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Menu</h3>
+            <h3 className="text-xl font-semibold mb-4">Menu</h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -127,7 +127,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Kontak</h3>
+            <h3 className="text-xl font-semibold mb-4">Kontak</h3>
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-amber-400 mt-0.5 flex-shrink-0" />

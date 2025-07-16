@@ -242,9 +242,40 @@ export default function AboutPage() {
                     <h3 className="text-3xl font-bold text-amber-900 mb-2">
                       {member.name}
                     </h3>
-                    <p className="text-gray-600 text-md">
+                    <p className="text-gray-600 text-md mb-4">
                       {member.description}
                     </p>
+                    {/* Social Media Icons */}
+                    <div className="flex justify-center gap-4 mt-2">
+                      {member.socials?.instagram && (
+                        <a
+                          href={member.socials.instagram.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${member.name} Instagram`}
+                          className={
+                            member.socials.instagram.colorClass +
+                            " text-2xl transition-colors"
+                          }
+                        >
+                          <member.socials.instagram.icon className="w-6 h-6" />
+                        </a>
+                      )}
+                      {member.socials?.twitter && (
+                        <a
+                          href={member.socials.twitter.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${member.name} Twitter`}
+                          className={
+                            member.socials.twitter.colorClass +
+                            " text-2xl transition-colors"
+                          }
+                        >
+                          <member.socials.twitter.icon className="w-6 h-6" />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </CardContent>
               </Card>

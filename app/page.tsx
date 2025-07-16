@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { pastEvents } from "./data/data-event"; // import data event
+import { menuItems } from "./data/data-menu"; // <-- add this import
 import { testimonials } from "./data/data-testimoni";
 
 export default function HomePage() {
@@ -36,8 +37,7 @@ export default function HomePage() {
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
-  const { coffee, nonCoffee, food, signature } =
-    require("./data/data-menu").menuItems;
+  const { coffee, nonCoffee, food, signature } = menuItems;
   const signatureMenuItems = [
     ...coffee,
     ...nonCoffee,
@@ -277,7 +277,7 @@ export default function HomePage() {
                     </Badge>
                   </div>
                   <div className="p-6 flex-grow flex flex-col">
-                    <h3 className="text-xl font-bold text-amber-900 mb-2">
+                    <h3 className="text-2xl font-extrabold text-amber-900 mb-2">
                       {item.name}
                     </h3>
                     <p className="text-gray-600 mb-4 text-sm flex-grow">

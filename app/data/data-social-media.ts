@@ -7,7 +7,7 @@ export type SocialMedia = {
   name: string;
   icon: LucideIcon;
   url: string;
-  colorClass?: string; // opsional, untuk button color
+  colorClass?: string;
 };
 
 export const socialMedias: SocialMedia[] = [

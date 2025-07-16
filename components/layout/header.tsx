@@ -1,8 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Coffee, Menu, X } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -65,22 +70,20 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-80">
+              {/* Tambahkan SheetTitle untuk aksesibilitas */}
+              <SheetTitle className="sr-only">Main Navigation</SheetTitle>
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center space-x-2">
-                  <div className="p-2 bg-amber-600 rounded-full">
-                    <Coffee className="h-5 w-5 text-white" />
-                  </div>
-                  <span className="text-lg font-bold text-amber-900">
-                    Coffee Shop
+                  <Image
+                    src="/assets/random/logo.png"
+                    alt="Noir Coffee Logo"
+                    width={47}
+                    height={47}
+                  />
+                  <span className="text-2xl font-bold font-serif text-amber-900">
+                    Noir Coffee
                   </span>
                 </div>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <X className="h-5 w-5" />
-                </Button>
               </div>
               <nav className="flex flex-col space-y-4">
                 {navigation.map((item) => (
@@ -88,7 +91,7 @@ export default function Header() {
                     key={item.name}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`text-lg font-medium transition-colors hover:text-amber-600 py-2 ${
+                    className={`text-lg font-medium transition-all hover:scale-105 hover:bg-amber-600 hover:text-white py-2 px-2 ${
                       pathname === item.href
                         ? "text-amber-600"
                         : "text-gray-700"

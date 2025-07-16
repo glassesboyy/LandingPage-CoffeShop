@@ -210,7 +210,7 @@ function GalleryGrid({ images }: { images: GalleryImage[] }) {
               </CardContent>
             </Card>
           </DialogTrigger>
-          <DialogContent className="max-w-4xl pt-10 px-6">
+          <DialogContent className="max-w-4xl pt-12 px-4">
             <div className="relative">
               <Image
                 src={image.src || "/placeholder.svg"}
