@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Clock, MapPin } from "lucide-react";
 import Image from "next/image";
-import { pastEvents } from "../data/data-event"; // import data event
-import { socialMedias } from "../data/data-social-media"; // import social media
+import { pastEvents } from "../data/data-event";
+import { socialMedias } from "../data/data-social-media";
 
 export default function EventPage() {
   return (
