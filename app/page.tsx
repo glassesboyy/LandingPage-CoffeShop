@@ -360,11 +360,13 @@ export default function HomePage() {
                     <h3 className="text-xl font-bold text-amber-900 mb-3">
                       {event.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 flex-grow">
-                      {event.description}
-                    </p>
-                    <Button className="w-full bg-amber-600 hover:bg-amber-700 font-semibold transition-all">
-                      Lihat Detail
+                    <Button
+                      asChild
+                      className="w-full bg-amber-600 hover:bg-amber-700 font-semibold transition-all"
+                    >
+                      <Link href={`/event/${event.id}/detail`}>
+                        Lihat Detail
+                      </Link>
                     </Button>
                   </div>
                 </CardContent>

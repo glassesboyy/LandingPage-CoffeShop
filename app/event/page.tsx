@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Clock, MapPin } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { pastEvents } from "../data/data-event";
 import { socialMedias } from "../data/data-social-media";
 
@@ -98,10 +99,6 @@ export default function EventPage() {
                       </div>
                     </div>
 
-                    <p className="text-gray-600 mb-4 text-sm flex-grow">
-                      {event.description}
-                    </p>
-
                     <div className="mb-4">
                       <h4 className="font-semibold text-amber-900 mb-2">
                         Highlights:
@@ -117,10 +114,12 @@ export default function EventPage() {
                     </div>
 
                     <Button
-                      onClick={() => alert(`Detail event: ${event.title}`)}
+                      asChild
                       className="w-full bg-amber-600 hover:bg-amber-700 mt-auto"
                     >
-                      Lihat Detail
+                      <Link href={`/event/${event.id}/detail`}>
+                        Lihat Detail
+                      </Link>
                     </Button>
                   </div>
                 </CardContent>

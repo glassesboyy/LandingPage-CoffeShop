@@ -32,7 +32,7 @@ export default function MenuDetailPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-amber-600 to-amber-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-amber-800 to-amber-950/40" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-2xl mx-auto text-center">
@@ -47,7 +47,7 @@ export default function MenuDetailPage() {
       </section>
 
       {/* Detail Card Section */}
-      <section className="pb-10 bg-gradient-to-t from-white to-amber-600">
+      <section className="pb-10 bg-gradient-to-t from-white to-amber-800">
         <div className="container mx-auto px-4 max-w-3xl">
           <Card className="border-0 shadow-lg">
             <CardContent className="p-8 flex flex-col md:flex-row gap-10 items-center">
