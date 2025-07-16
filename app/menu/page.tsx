@@ -13,11 +13,12 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 import { useState } from "react";
+import { menuCategories } from "../data/data-kategory-menu";
 import { MenuItem, menuItems } from "../data/data-menu";
 
 export default function MenuPage() {
   const [sortBy, setSortBy] = useState("name");
-  const [activeTab, setActiveTab] = useState("coffee");
+  const [activeTab, setActiveTab] = useState(menuCategories[0].id.toString());
 
   const sortItems = (items: MenuItem[]) => {
     return [...items].sort((a, b) => {
@@ -28,6 +29,18 @@ export default function MenuPage() {
       }
       return a.name.localeCompare(b.name);
     });
+  };
+
+  // Filter menu berdasarkan kategori
+  const getMenuByCategory = (categoryId: string) => {
+    if (categoryId === "4") {
+      // Signature tab
+      return menuItems.filter((item) => item.signature);
+    }
+    const idNum = Number(categoryId);
+    return menuItems.filter(
+      (item) => item.category === idNum && !item.signature
+    );
   };
 
   return (
@@ -97,64 +110,31 @@ export default function MenuPage() {
             onValueChange={setActiveTab}
             className="w-full"
           >
-            <TabsList className="grid w-full grid-cols-4 mb-12 bg-amber-50">
-              <TabsTrigger
-                value="coffee"
-                className="data-[state=active]:bg-amber-600 data-[state=active]:text-white"
-              >
-                Coffee
-              </TabsTrigger>
-              <TabsTrigger
-                value="nonCoffee"
-                className="data-[state=active]:bg-amber-600 data-[state=active]:text-white"
-              >
-                Non-Coffee
-              </TabsTrigger>
-              <TabsTrigger
-                value="food"
-                className="data-[state=active]:bg-amber-600 data-[state=active]:text-white"
-              >
-                Food
-              </TabsTrigger>
-              <TabsTrigger
-                value="signature"
-                className="data-[state=active]:bg-amber-600 data-[state=active]:text-white"
-              >
-                Signature
-              </TabsTrigger>
+            <TabsList
+              className={`grid w-full grid-cols-${menuCategories.length} mb-12 bg-amber-50`}
+            >
+              {menuCategories.map((cat) => (
+                <TabsTrigger
+                  key={cat.id}
+                  value={cat.id.toString()}
+                  className="data-[state=active]:bg-amber-600 data-[state=active]:text-white"
+                >
+                  {cat.name}
+                </TabsTrigger>
+              ))}
             </TabsList>
 
-            <TabsContent value="coffee">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {sortItems(menuItems.coffee).map((item, index) => (
-                  <MenuCard key={index} item={item} />
-                ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="nonCoffee">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {sortItems(menuItems.nonCoffee).map((item, index) => (
-                  <MenuCard key={index} item={item} />
-                ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="food">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {sortItems(menuItems.food).map((item, index) => (
-                  <MenuCard key={index} item={item} />
-                ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="signature">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {sortItems(menuItems.signature).map((item, index) => (
-                  <MenuCard key={index} item={item} />
-                ))}
-              </div>
-            </TabsContent>
+            {menuCategories.map((cat) => (
+              <TabsContent value={cat.id.toString()} key={cat.id}>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {sortItems(getMenuByCategory(cat.id.toString())).map(
+                    (item, index) => (
+                      <MenuCard key={index} item={item} />
+                    )
+                  )}
+                </div>
+              </TabsContent>
+            ))}
           </Tabs>
         </div>
       </section>

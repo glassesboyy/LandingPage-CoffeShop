@@ -12,9 +12,39 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 import { useState } from "react";
 import { GalleryImage, galleryImages } from "../data/data-gallery";
+import { galleryCategories } from "../data/data-kategory-gallery";
 
 export default function GalleryPage() {
-  const [activeTab, setActiveTab] = useState("interior");
+  const [activeTab, setActiveTab] = useState(
+    galleryCategories[0].id.toString()
+  );
+
+  // Untuk deskripsi dan judul per kategori
+  const categoryDetails: Record<
+    number,
+    { badge: string; title: string; desc: string }
+  > = {
+    1: {
+      badge: "Interior",
+      title: "Interior & Eksterior",
+      desc: "Nikmati suasana hangat dan desain interior yang nyaman di coffee shop kami",
+    },
+    2: {
+      badge: "Barista",
+      title: "Aktivitas Barista",
+      desc: "Saksikan keahlian barista kami dalam menciptakan kopi berkualitas tinggi",
+    },
+    3: {
+      badge: "Pelanggan",
+      title: "Suasana Pelanggan",
+      desc: "Momen-momen berharga pelanggan yang menikmati waktu di coffee shop kami",
+    },
+    4: {
+      badge: "Event",
+      title: "Dokumentasi Event",
+      desc: "Berbagai kegiatan dan event menarik yang telah kami selenggarakan",
+    },
+  };
 
   return (
     <div className="min-h-screen">
@@ -50,135 +80,47 @@ export default function GalleryPage() {
             className="w-full"
           >
             <TabsList className="grid w-full grid-cols-4 mb-12 bg-amber-50">
-              <TabsTrigger
-                value="interior"
-                className="data-[state=active]:bg-amber-600 data-[state=active]:text-white"
-              >
-                Interior
-              </TabsTrigger>
-              <TabsTrigger
-                value="barista"
-                className="data-[state=active]:bg-amber-600 data-[state=active]:text-white"
-              >
-                Barista
-              </TabsTrigger>
-              <TabsTrigger
-                value="customers"
-                className="data-[state=active]:bg-amber-600 data-[state=active]:text-white"
-              >
-                Pelanggan
-              </TabsTrigger>
-              <TabsTrigger
-                value="events"
-                className="data-[state=active]:bg-amber-600 data-[state=active]:text-white"
-              >
-                Event
-              </TabsTrigger>
+              {galleryCategories.map((cat) => (
+                <TabsTrigger
+                  key={cat.id}
+                  value={cat.id.toString()}
+                  className="data-[state=active]:bg-amber-600 data-[state=active]:text-white"
+                >
+                  {cat.name}
+                </TabsTrigger>
+              ))}
             </TabsList>
 
-            <TabsContent value="interior">
-              <div className="mb-8">
-                <Badge
-                  className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
-                  icon={
-                    <Image
-                      src="/assets/random/logo.png"
-                      alt="Logo"
-                      width={13.7}
-                      height={13.7}
-                    />
-                  }
-                >
-                  Interior
-                </Badge>
-                <h2 className="text-3xl font-bold text-amber-900 mb-4">
-                  Interior & Eksterior
-                </h2>
-                <p className="text-gray-600 text-lg">
-                  Nikmati suasana hangat dan desain interior yang nyaman di
-                  coffee shop kami
-                </p>
-              </div>
-              <GalleryGrid images={galleryImages.interior} />
-            </TabsContent>
-
-            <TabsContent value="barista">
-              <div className="mb-8">
-                <Badge
-                  className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
-                  icon={
-                    <Image
-                      src="/assets/random/logo.png"
-                      alt="Logo"
-                      width={13.7}
-                      height={13.7}
-                    />
-                  }
-                >
-                  Barista
-                </Badge>
-                <h2 className="text-3xl font-bold text-amber-900 mb-4">
-                  Aktivitas Barista
-                </h2>
-                <p className="text-gray-600 text-lg">
-                  Saksikan keahlian barista kami dalam menciptakan kopi
-                  berkualitas tinggi
-                </p>
-              </div>
-              <GalleryGrid images={galleryImages.barista} />
-            </TabsContent>
-
-            <TabsContent value="customers">
-              <div className="mb-8">
-                <Badge
-                  className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
-                  icon={
-                    <Image
-                      src="/assets/random/logo.png"
-                      alt="Logo"
-                      width={13.7}
-                      height={13.7}
-                    />
-                  }
-                >
-                  Pelanggan
-                </Badge>
-                <h2 className="text-3xl font-bold text-amber-900 mb-4">
-                  Suasana Pelanggan
-                </h2>
-                <p className="text-gray-600 text-lg">
-                  Momen-momen berharga pelanggan yang menikmati waktu di coffee
-                  shop kami
-                </p>
-              </div>
-              <GalleryGrid images={galleryImages.customers} />
-            </TabsContent>
-
-            <TabsContent value="events">
-              <div className="mb-8">
-                <Badge
-                  className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
-                  icon={
-                    <Image
-                      src="/assets/random/logo.png"
-                      alt="Logo"
-                      width={13.7}
-                      height={13.7}
-                    />
-                  }
-                >
-                  Event
-                </Badge>
-                <h2 className="text-3xl font-bold text-amber-900 mb-4">
-                  Dokumentasi Event
-                </h2>
-                <p className="text-gray-600 text-lg">
-                  Berbagai kegiatan dan event menarik yang telah kami
-                  selenggarakan
-                </p>
-              </div>
-              <GalleryGrid images={galleryImages.events} />
-            </TabsContent>
+            {galleryCategories.map((cat) => (
+              <TabsContent value={cat.id.toString()} key={cat.id}>
+                <div className="mb-8">
+                  <Badge
+                    className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
+                    icon={
+                      <Image
+                        src="/assets/random/logo.png"
+                        alt="Logo"
+                        width={13.7}
+                        height={13.7}
+                      />
+                    }
+                  >
+                    {categoryDetails[cat.id]?.badge || cat.name}
+                  </Badge>
+                  <h2 className="text-3xl font-bold text-amber-900 mb-4">
+                    {categoryDetails[cat.id]?.title || cat.name}
+                  </h2>
+                  <p className="text-gray-600 text-lg">
+                    {categoryDetails[cat.id]?.desc || ""}
+                  </p>
+                </div>
+                <GalleryGrid
+                  images={galleryImages.filter(
+                    (img) => img.category === cat.id
+                  )}
+                />
+              </TabsContent>
+            ))}
           </Tabs>
         </div>
       </section>

@@ -37,13 +37,7 @@ export default function HomePage() {
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
-  const { coffee, nonCoffee, food, signature } = menuItems;
-  const signatureMenuItems = [
-    ...coffee,
-    ...nonCoffee,
-    ...food,
-    ...signature,
-  ].filter((item) => item.signature);
+  const signatureMenuItems = menuItems.filter((item) => item.signature);
 
   return (
     <div className="min-h-screen">
