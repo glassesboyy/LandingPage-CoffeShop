@@ -1,4 +1,4 @@
-import { socialMedias } from "@/app/data/data-social-media"; // import social media
+import { socialMedias } from "@/app/data/data-social-media";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -86,40 +86,32 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Menu Categories */}
+          {/* Lainnya */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Menu</h3>
+            <h3 className="text-xl font-semibold mb-4">Lainnya</h3>
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/menu"
+                  href="/faq"
                   className="text-amber-200 hover:text-white transition-colors"
                 >
-                  Coffee
+                  FAQ
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/menu"
+                  href="/terms"
                   className="text-amber-200 hover:text-white transition-colors"
                 >
-                  Non-Coffee
+                  Syarat dan Ketentuan
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/menu"
+                  href="/privacy"
                   className="text-amber-200 hover:text-white transition-colors"
                 >
-                  Food
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/menu"
-                  className="text-amber-200 hover:text-white transition-colors"
-                >
-                  Signature Menu
+                  Ketentuan Privasi
                 </Link>
               </li>
             </ul>
