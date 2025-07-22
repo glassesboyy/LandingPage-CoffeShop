@@ -26,7 +26,7 @@ export const testimonials: Testimonial[] = [
     avatar: "/placeholder-user.jpg",
     rating: 5,
     comment:
-      "Cold brew mereka adalah yang terbaik di kota! Selalu jadi pilihan utama saat butuh caffeine boost untuk kerja. WiFi cepat dan tempat duduk nyaman.",
+      "Cold brew mereka adalah yang terbaik di kota! Selalu jadi pilihan utama saat butuh caffeine boost untuk kerja. WiFi cepat dan tempat duduk nyaman, sangat cocok untuk freelancer seperti saya.",
     date: "1 bulan yang lalu",
   },
   {

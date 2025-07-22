@@ -300,12 +300,12 @@ export default function AboutPage() {
                 icon: Award,
                 title: "Kualitas Terjamin",
                 description:
-                  "Standar brewing yang konsisten untuk setiap cangkir kopi",
+                  "Standar brewing yang konsisten untuk setiap cangkir kopi, dari latte hingga pour-over",
               },
             ].map((feature, index) => (
               <ScaleIn key={index} delay={0.1 + index * 0.1} scale={0.9}>
                 <Card className="p-6 text-center border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <CardContent className="p-0">
+                  <CardContent className="p-1">
                     <div className="p-4 bg-amber-50 rounded-t-3xl w-20 h-20 mx-auto mb-6 flex items-center justify-center">
                       <feature.icon className="w-20 h-20 text-amber-600" />
                     </div>

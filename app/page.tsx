@@ -466,7 +466,7 @@ export default function HomePage() {
             {testimonials.slice(0, 2).map((testimonial, index) => (
               <ScaleIn key={index} delay={0.1 + index * 0.2} scale={0.95}>
                 <Card className="p-8 border-0 shadow-lg h-full group transition-all duration-300 hover:shadow-2xl">
-                  <CardContent className="p-0 h-full flex flex-col">
+                  <CardContent className="h-full p-0 flex flex-col">
                     <div className="flex items-center gap-5 mb-5">
                       <Image
                         src={testimonial.avatar || "/placeholder.svg"}
