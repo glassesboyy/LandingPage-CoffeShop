@@ -10,7 +10,12 @@ import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
 
 // Import animation components
-import { FadeIn, ScaleIn, StaggerContainer } from "@/components/animation";
+import {
+  FadeIn,
+  ScaleIn,
+  SlideIn,
+  StaggerContainer,
+} from "@/components/animation";
 
 export default function MenuDetailPage() {
   const params = useParams();
@@ -60,112 +65,116 @@ export default function MenuDetailPage() {
             <Card className="border-0 shadow-lg">
               <CardContent className="p-8 flex flex-col md:flex-row gap-10 items-center">
                 {/* Kiri: Gambar */}
-                <div className="md:w-1/2 w-full flex flex-col items-center">
-                  <div className="relative w-full h-72 overflow-hidden shadow-lg mb-4">
-                    <Image
-                      src={menu.image || "/placeholder.svg"}
-                      alt={menu.name}
-                      fill
-                      className="object-cover"
-                    />
-                    {menu.signature && (
-                      <ScaleIn delay={0.4}>
-                        <Badge className="absolute top-4 right-4 bg-amber-600 text-white px-3 py-1 shadow">
-                          Signature
-                        </Badge>
-                      </ScaleIn>
+                <SlideIn direction="left" delay={0.3}>
+                  <div className="md:w-1/2 w-full flex flex-col items-center">
+                    <div className="relative w-full h-72 rounded-lg overflow-hidden shadow-lg mb-4">
+                      <Image
+                        src={menu.image || "/placeholder.svg"}
+                        alt={menu.name}
+                        fill
+                        className="object-cover rounded-lg"
+                      />
+                      {menu.signature && (
+                        <ScaleIn delay={0.4}>
+                          <Badge className="absolute top-4 right-4 bg-amber-600 text-white px-3 py-1 shadow">
+                            Signature
+                          </Badge>
+                        </ScaleIn>
+                      )}
+                    </div>
+                  </div>
+                </SlideIn>
+                {/* Kanan: Detail Menu + Nutrisi */}
+                <SlideIn direction="right" delay={0.5}>
+                  <div className="md:w-1/2 w-full flex flex-col justify-center">
+                    <FadeIn delay={0.6}>
+                      <h2 className="text-3xl font-bold text-amber-900">
+                        {menu.name}
+                      </h2>
+                    </FadeIn>
+                    <FadeIn delay={0.7}>
+                      <span className="text-xl text-amber-700 font-semibold block">
+                        {menu.price}
+                      </span>
+                    </FadeIn>
+                    <FadeIn delay={0.8}>
+                      <p className="text-gray-700 mb-2 text-sm">
+                        {menu.description}
+                      </p>
+                    </FadeIn>
+                    <StaggerContainer delay={0.9}>
+                      <FadeIn delay={0.1}>
+                        <div className="text-xs">
+                          <span className="text-gray-500">Kategori: </span>
+                          <span className="font-medium text-amber-900">
+                            {category?.name || "Tidak diketahui"}
+                          </span>
+                        </div>
+                      </FadeIn>
+                      {menu.origin && (
+                        <FadeIn delay={0.2}>
+                          <div className="text-xs">
+                            <span className="text-gray-500">Asal: </span>
+                            <span className="font-medium text-amber-900">
+                              {menu.origin}
+                            </span>
+                          </div>
+                        </FadeIn>
+                      )}
+                      {menu.prepTime && (
+                        <FadeIn delay={0.3}>
+                          <div className="text-xs ">
+                            <span className="text-gray-500">
+                              Waktu Penyajian:{" "}
+                            </span>
+                            <span className="font-medium text-amber-900">
+                              {menu.prepTime}
+                            </span>
+                          </div>
+                        </FadeIn>
+                      )}
+                      {typeof menu.rating === "number" && (
+                        <FadeIn delay={0.4}>
+                          <div className="text-xs">
+                            <span className="text-gray-500">Rating: </span>
+                            <span className="font-semibold  text-amber-900">
+                              {menu.rating} / 5
+                            </span>
+                          </div>
+                        </FadeIn>
+                      )}
+                    </StaggerContainer>
+                    {/* Informasi Nutrisi di bawah detail menu */}
+                    {menu.nutrition && (
+                      <FadeIn delay={1.0}>
+                        <div className="mt-2">
+                          <h2 className="text-lg font-semibold mb-1 text-amber-900">
+                            Informasi Nutrisi
+                          </h2>
+                          <table className="w-full text-xs text-left border border-amber-200 overflow-hidden">
+                            <tbody>
+                              {Object.entries(menu.nutrition).map(
+                                ([key, value]) => (
+                                  <tr
+                                    key={key}
+                                    className="border-b last:border-b-0"
+                                  >
+                                    <td className="py-1 px-4 capitalize text-gray-700">
+                                      {key}
+                                    </td>
+                                    <td className="py-1 px-4 text-gray-900 font-medium">
+                                      {value ?? "-"}
+                                    </td>
+                                  </tr>
+                                )
+                              )}
+                            </tbody>
+                          </table>
+                        </div>
+                      </FadeIn>
                     )}
                   </div>
-                </div>
-                {/* Kanan: Detail Menu + Nutrisi */}
-                <div className="md:w-1/2 w-full flex flex-col justify-center">
-                  <FadeIn delay={0.6}>
-                    <h2 className="text-3xl font-bold text-amber-900">
-                      {menu.name}
-                    </h2>
-                  </FadeIn>
-                  <FadeIn delay={0.7}>
-                    <span className="text-xl text-amber-700 font-semibold block">
-                      {menu.price}
-                    </span>
-                  </FadeIn>
-                  <FadeIn delay={0.8}>
-                    <p className="text-gray-700 mb-2 text-sm">
-                      {menu.description}
-                    </p>
-                  </FadeIn>
-                  <StaggerContainer delay={0.9}>
-                    <FadeIn delay={0.1}>
-                      <div className="text-xs">
-                        <span className="text-gray-500">Kategori: </span>
-                        <span className="font-medium text-amber-900">
-                          {category?.name || "Tidak diketahui"}
-                        </span>
-                      </div>
-                    </FadeIn>
-                    {menu.origin && (
-                      <FadeIn delay={0.2}>
-                        <div className="text-xs">
-                          <span className="text-gray-500">Asal: </span>
-                          <span className="font-medium text-amber-900">
-                            {menu.origin}
-                          </span>
-                        </div>
-                      </FadeIn>
-                    )}
-                    {menu.prepTime && (
-                      <FadeIn delay={0.3}>
-                        <div className="text-xs ">
-                          <span className="text-gray-500">
-                            Waktu Penyajian:{" "}
-                          </span>
-                          <span className="font-medium text-amber-900">
-                            {menu.prepTime}
-                          </span>
-                        </div>
-                      </FadeIn>
-                    )}
-                    {typeof menu.rating === "number" && (
-                      <FadeIn delay={0.4}>
-                        <div className="text-xs">
-                          <span className="text-gray-500">Rating: </span>
-                          <span className="font-semibold  text-amber-900">
-                            {menu.rating} / 5
-                          </span>
-                        </div>
-                      </FadeIn>
-                    )}
-                  </StaggerContainer>
-                  {/* Informasi Nutrisi di bawah detail menu */}
-                  {menu.nutrition && (
-                    <FadeIn delay={1.0}>
-                      <div className="mt-2">
-                        <h2 className="text-lg font-semibold mb-1 text-amber-900">
-                          Informasi Nutrisi
-                        </h2>
-                        <table className="w-full text-xs text-left border border-amber-200 overflow-hidden">
-                          <tbody>
-                            {Object.entries(menu.nutrition).map(
-                              ([key, value]) => (
-                                <tr
-                                  key={key}
-                                  className="border-b last:border-b-0"
-                                >
-                                  <td className="py-1 px-4 capitalize text-gray-700">
-                                    {key}
-                                  </td>
-                                  <td className="py-1 px-4 text-gray-900 font-medium">
-                                    {value ?? "-"}
-                                  </td>
-                                </tr>
-                              )
-                            )}
-                          </tbody>
-                        </table>
-                      </div>
-                    </FadeIn>
-                  )}
-                </div>
+                </SlideIn>
               </CardContent>
             </Card>
           </ScaleIn>

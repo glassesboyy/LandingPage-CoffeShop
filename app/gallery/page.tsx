@@ -3,6 +3,9 @@ import { galleryImages } from "../data/data-gallery";
 import { galleryCategories } from "../data/data-kategory-gallery";
 import GalleryTabs from "./_components/gallery-tabs";
 
+// Import animation components
+import { FadeIn } from "@/components/animation";
+
 export default function GalleryPage() {
   return (
     <div className="min-h-screen">
@@ -20,11 +23,17 @@ export default function GalleryPage() {
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Galeri Kami</h1>
-            <p className="text-lg md:text-xl text-amber-100">
-              Jelajahi suasana hangat dan momen-momen berharga di coffee shop
-              kami
-            </p>
+            <FadeIn delay={0.3}>
+              <h1 className="text-5xl md:text-6xl font-bold mb-4">
+                Galeri Kami
+              </h1>
+            </FadeIn>
+            <FadeIn delay={0.5}>
+              <p className="text-lg md:text-xl text-amber-100">
+                Jelajahi suasana hangat dan momen-momen berharga di coffee shop
+                kami
+              </p>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -32,7 +41,12 @@ export default function GalleryPage() {
       {/* Gallery Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <GalleryTabs categories={galleryCategories} images={galleryImages} />
+          <FadeIn delay={0.2}>
+            <GalleryTabs
+              categories={galleryCategories}
+              images={galleryImages}
+            />
+          </FadeIn>
         </div>
       </section>
     </div>
