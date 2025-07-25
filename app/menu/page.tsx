@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
 import {
   Select,
   SelectContent,
@@ -16,6 +16,10 @@ import Link from "next/link";
 import { useState } from "react";
 import { menuCategories } from "../data/data-kategory-menu";
 import { MenuItem, menuItems } from "../data/data-menu";
+
+// Import animation components
+import { FadeIn, SlideIn, StaggerContainer } from "@/components/animation";
+import { AnimatedCard } from "@/components/animation/ui-animations";
 
 export default function MenuPage() {
   const [sortBy, setSortBy] = useState("name");
@@ -60,10 +64,15 @@ export default function MenuPage() {
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Menu Kami</h1>
-            <p className="text-lg md:text-xl text-amber-100">
-              Jelajahi koleksi kopi premium dan makanan lezat yang kami tawarkan
-            </p>
+            <FadeIn delay={0.3}>
+              <h1 className="text-5xl md:text-6xl font-bold mb-4">Menu Kami</h1>
+            </FadeIn>
+            <FadeIn delay={0.5}>
+              <p className="text-lg md:text-xl text-amber-100">
+                Jelajahi koleksi kopi premium dan makanan lezat yang kami
+                tawarkan
+              </p>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -74,78 +83,93 @@ export default function MenuPage() {
           {/* Filter Controls */}
           <div className="flex flex-col sm:flex-row justify-between items-center mb-12 gap-4">
             <div className="flex flex-col items-start">
-              <Badge
-                className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
-                icon={
-                  <Image
-                    src="/assets/random/logo.png"
-                    alt="Logo"
-                    width={13.7}
-                    height={13.7}
-                  />
-                }
-              >
-                Menu
-              </Badge>
-              <h2 className="text-3xl font-bold text-amber-900">
-                Pilih Kategori
-              </h2>
-              <p className="text-base text-gray-600 mt-2">
-                Temukan minuman dan makanan favoritmu dari berbagai kategori
-                yang tersedia di coffee shop kami.
-              </p>
+              <FadeIn delay={0.1}>
+                <Badge
+                  className="mb-1 pl-1 pr-2.5 bg-amber-200 text-amber-900 border-amber-900"
+                  icon={
+                    <Image
+                      src="/assets/random/logo.png"
+                      alt="Logo"
+                      width={13.7}
+                      height={13.7}
+                    />
+                  }
+                >
+                  Menu
+                </Badge>
+              </FadeIn>
+              <FadeIn delay={0.2}>
+                <h2 className="text-3xl font-bold text-amber-900">
+                  Pilih Kategori
+                </h2>
+              </FadeIn>
+              <FadeIn delay={0.3}>
+                <p className="text-base text-gray-600 mt-2">
+                  Temukan minuman dan makanan favoritmu dari berbagai kategori
+                  yang tersedia di coffee shop kami.
+                </p>
+              </FadeIn>
             </div>
-            <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-48">
-                <SelectValue placeholder="Urutkan berdasarkan" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="name">Nama A-Z</SelectItem>
-                <SelectItem value="price">Harga Terendah</SelectItem>
-              </SelectContent>
-            </Select>
+            <SlideIn direction="right" delay={0.4}>
+              <Select value={sortBy} onValueChange={setSortBy}>
+                <SelectTrigger className="w-48">
+                  <SelectValue placeholder="Urutkan berdasarkan" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="name">Nama A-Z</SelectItem>
+                  <SelectItem value="price">Harga Terendah</SelectItem>
+                </SelectContent>
+              </Select>
+            </SlideIn>
           </div>
 
-          <Tabs
-            value={activeTab}
-            onValueChange={setActiveTab}
-            className="w-full"
-          >
-            <TabsList
-              className={`grid w-full grid-cols-${menuCategories.length} mb-12 bg-amber-50`}
+          <FadeIn delay={0.5}>
+            <Tabs
+              value={activeTab}
+              onValueChange={setActiveTab}
+              className="w-full"
             >
-              {menuCategories.map((cat) => (
-                <TabsTrigger
-                  key={cat.id}
-                  value={cat.id.toString()}
-                  className="data-[state=active]:bg-amber-600 data-[state=active]:text-white"
-                >
-                  {cat.name}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+              <TabsList
+                className={`grid w-full grid-cols-${menuCategories.length} mb-12 bg-amber-50`}
+              >
+                {menuCategories.map((cat, index) => (
+                  <TabsTrigger
+                    key={cat.id}
+                    value={cat.id.toString()}
+                    className="data-[state=active]:bg-amber-600 data-[state=active]:text-white"
+                  >
+                    {cat.name}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
 
-            {menuCategories.map((cat) => (
-              <TabsContent value={cat.id.toString()} key={cat.id}>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {sortItems(getMenuByCategory(cat.id.toString())).map(
-                    (item, index) => (
-                      <MenuCard key={index} item={item} />
-                    )
-                  )}
-                </div>
-              </TabsContent>
-            ))}
-          </Tabs>
+              {menuCategories.map((cat) => (
+                <TabsContent value={cat.id.toString()} key={cat.id}>
+                  <StaggerContainer delay={0.6}>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {sortItems(getMenuByCategory(cat.id.toString())).map(
+                        (item, index) => (
+                          <MenuCard key={index} item={item} index={index} />
+                        )
+                      )}
+                    </div>
+                  </StaggerContainer>
+                </TabsContent>
+              ))}
+            </Tabs>
+          </FadeIn>
         </div>
       </section>
     </div>
   );
 }
 
-function MenuCard({ item }: { item: MenuItem }) {
+function MenuCard({ item, index }: { item: MenuItem; index: number }) {
   return (
-    <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md">
+    <AnimatedCard
+      delay={0.1 + index * 0.1}
+      className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md"
+    >
       <CardContent className="p-0">
         <div className="relative overflow-hidden">
           <Image
@@ -180,6 +204,6 @@ function MenuCard({ item }: { item: MenuItem }) {
           </div>
         </div>
       </CardContent>
-    </Card>
+    </AnimatedCard>
   );
 }
